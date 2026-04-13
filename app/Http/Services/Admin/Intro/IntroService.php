@@ -22,6 +22,10 @@ class IntroService
         return $intro->delete();
     }
 
+    public function getById($id){
+        return Intro::findOrFail($id);
+    }
+
     public function create($data){
         $intro = new Intro();
         $intro->fill(
@@ -40,7 +44,7 @@ class IntroService
         return $intro->save();
     }
 
-    public function update($request, $id){
+    public function update($data, $id){
         $intro = Intro::findOrFail($id);
         $intro->fill(
             [

@@ -103,6 +103,12 @@
                         <span>صفحات البداية</span>
                     </a>
                 </li>
+                <li>
+                    <a href="{{Route('admin.helps.index')}}">
+                        <i class="simple-icon-people"></i>
+                        <span>صفحات المساعدات</span>
+                    </a>
+                </li>
                 {{-- <li>
                     <a href="{{Route('setting')}}">
                         <i class="iconsminds-security-settings"></i>

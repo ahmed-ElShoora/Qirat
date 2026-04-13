@@ -5,6 +5,8 @@ use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\IntroController;
+use App\Http\Controllers\Admin\HelpController;
+
 //admin login routes
 Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/login', [AuthController::class, 'authenticate'])->name('admin.authenticate');
@@ -22,4 +24,6 @@ Route::middleware('auth:admin')->name('admin.')->group(function () {
     Route::post('/admin-create',[AdminController::class,'store'])->name('create.admin.store');
     //intro crud routes
     Route::resource('intros',IntroController::class)->except(['show']);
+    //help crud routes
+    Route::resource('helps',HelpController::class)->except(['show']);
 });

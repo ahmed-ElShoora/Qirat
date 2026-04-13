@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CreateIntroRequest;
-use App\Http\Requests\UpdateIntroRequest;
+use App\Http\Requests\EditIntroRequest;
 use App\Http\Services\Admin\Intro\IntroService;
 
 class IntroController extends Controller
@@ -46,14 +46,14 @@ class IntroController extends Controller
      */
     public function edit(string $id)
     {
-        $intro = Intro::findOrFail($id);
+        $intro = $this->introService->getById($id);
         return view('admin.intro.edit',compact('intro'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateIntroRequest $request, string $id)
+    public function update(EditIntroRequest $request, string $id)
     {
         $result = $this->introService->update($request->validated(), $id);
         if (!$result) {

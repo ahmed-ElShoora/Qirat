@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Traits\ApiResponse;
 use App\Http\Services\Api\IntroService;
+use App\Http\Resources\IntroResource;
 
 class IntroController extends Controller
 {
@@ -19,6 +20,10 @@ class IntroController extends Controller
     public function __invoke(Request $request)
     {
         $intro = $this->introService->getIntro();
-        return $this->successResponse(200,'Intro retrieved successfully',$intro);
+        return $this->successResponse(
+            200,
+            'Intro retrieved successfully',
+            IntroResource::collection($intro)
+        );
     }
 }
