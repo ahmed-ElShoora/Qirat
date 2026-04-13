@@ -5,7 +5,7 @@ use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
 use App\Http\Middleware\ApiPassword;
 use App\Http\Middleware\ChangeLang;
-
+use App\Exceptions\Handler as ExceptionHandler;
 return Application::configure(basePath: dirname(__DIR__))
     ->withRouting(
         web: __DIR__.'/../routes/admin.php',
@@ -20,5 +20,13 @@ return Application::configure(basePath: dirname(__DIR__))
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
-        //
+        $exceptions->render(function (\Throwable $e, $request) {
+            if ($request->is('api/*') || $request->expectsJson()) {
+                return response()->json([
+                    'status' => false,
+                    'message' => 'An error occurred',
+                    'errors' => null,
+                ], 401);
+            }
+        });
     })->create();

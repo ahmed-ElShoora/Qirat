@@ -24,7 +24,7 @@ class GoogleSignRequest extends FormRequest
     {
         return [
             'token' => ['required', 'string'],
-            'referral_code' => ['nullable', 'string']
+            'referral_code' => ['nullable', 'string', 'exists:users,id'],
         ];
     }
 }
