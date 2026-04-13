@@ -6,26 +6,26 @@
     <title>Qirat</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    <link rel="stylesheet" href="font/iconsmind-s/css/iconsminds.css" />
-    <link rel="stylesheet" href="font/simple-line-icons/css/simple-line-icons.css" />
+    <link rel="stylesheet" href="{{ asset('font/iconsmind-s/css/iconsminds.css') }}" />
+    <link rel="stylesheet" href="{{ asset('font/simple-line-icons/css/simple-line-icons.css') }}" />
 
-    <link rel="stylesheet" href="css/vendor/quill.snow.css" />
-    <link rel="stylesheet" href="css/vendor/quill.bubble.css" />
-    <link rel="stylesheet" href="css/vendor/bootstrap.min.css" />
-    <link rel="stylesheet" href="css/vendor/bootstrap.rtl.only.min.css" />
-    <link rel="stylesheet" href="css/vendor/fullcalendar.min.css" />
-    <link rel="stylesheet" href="css/vendor/dataTables.bootstrap4.min.css" />
-    <link rel="stylesheet" href="css/vendor/datatables.responsive.bootstrap4.min.css" />
-    <link rel="stylesheet" href="css/vendor/select2.min.css" />
-    <link rel="stylesheet" href="css/vendor/select2-bootstrap.min.css" />
-    <link rel="stylesheet" href="css/vendor/perfect-scrollbar.css" />
-    <link rel="stylesheet" href="css/vendor/glide.core.min.css" />
-    <link rel="stylesheet" href="css/vendor/cropper.min.css" />
-    <link rel="stylesheet" href="css/vendor/bootstrap-stars.css" />
-    <link rel="stylesheet" href="css/vendor/nouislider.min.css" />
-    <link rel="stylesheet" href="css/vendor/bootstrap-datepicker3.min.css" />
-    <link rel="stylesheet" href="css/vendor/component-custom-switch.min.css" />
-    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="{{ asset('css/vendor/quill.snow.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/vendor/quill.bubble.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/vendor/bootstrap.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/vendor/bootstrap.rtl.only.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/vendor/fullcalendar.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/vendor/dataTables.bootstrap4.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/vendor/datatables.responsive.bootstrap4.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/vendor/select2.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/vendor/select2-bootstrap.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/vendor/perfect-scrollbar.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/vendor/glide.core.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/vendor/cropper.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/vendor/bootstrap-stars.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/vendor/nouislider.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/vendor/bootstrap-datepicker3.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/vendor/component-custom-switch.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/main.css') }}" />
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
 
@@ -66,7 +66,7 @@
             <button class="btn btn-empty p-0" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="name">{{Auth::user()->name}}</span>
                 <span>
-                        <img alt="Profile Picture" src="img/profiles/l-1.jpg" />
+                        <img alt="Profile Picture" src="{{ asset('img/profiles/l-1.jpg') }}" />
                     </span>
             </button>
 
@@ -97,6 +97,12 @@
                         <span>المشرفين</span>
                     </a>
                 </li>
+                <li>
+                    <a href="{{Route('admin.intros.index')}}">
+                        <i class="simple-icon-doc"></i>
+                        <span>صفحات البداية</span>
+                    </a>
+                </li>
                 {{-- <li>
                     <a href="{{Route('setting')}}">
                         <i class="iconsminds-security-settings"></i>
@@ -108,6 +114,11 @@
     </div>
 
 </div>
+@if(session('error'))
+    <div class="alert alert-danger">
+        {{ session('error') }}
+    </div>
+@endif
 @yield('content')
 
 <script src="{{ asset('js/vendor/quill.min.js') }}"></script>
@@ -134,6 +145,7 @@
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+
 @yield('script')
 
 </body>

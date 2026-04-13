@@ -8,10 +8,9 @@ use App\Http\Services\Admin\Auth\AuthAdminService;
 
 class AuthController extends Controller
 {
-    public function __construct()
-    {
-        $this->authAdminService = new AuthAdminService();
-    }
+    public function __construct(
+        private AuthAdminService $authAdminService
+    ){}
     public function login(){
         return view('admin.auth.login');
     }

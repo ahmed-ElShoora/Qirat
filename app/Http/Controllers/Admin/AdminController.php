@@ -8,11 +8,9 @@ use App\Http\Services\Admin\Admins\AdminService;
 
 class AdminController extends Controller
 {
-    public function __construct()
-    {
-        $this->adminService = new AdminService();
-    }
-
+    public function __construct(
+        private AdminService $adminService
+    ){}
     public function index(){
         $admins = $this->adminService->getAll();
         return view('admin.admin.index',compact('admins'));
