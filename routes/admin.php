@@ -23,7 +23,7 @@ Route::middleware('auth:admin')->name('admin.')->group(function () {
     Route::get('/admin-create',[AdminController::class,'create'])->name('create.admin');
     Route::post('/admin-create',[AdminController::class,'store'])->name('create.admin.store');
     //intro crud routes
-    Route::resource('intros',IntroController::class)->except(['show']);
+    Route::resource('/intros',IntroController::class)->except(['show']);
     //help crud routes
-    Route::resource('helps',HelpController::class)->except(['show']);
+    Route::resource('/helps',HelpController::class)->except(['show']);
 });
