@@ -115,12 +115,12 @@
                         <span>مراجعة طلبات التأكيد</span>
                     </a>
                 </li>
-                {{-- <li>
-                    <a href="{{Route('setting')}}">
+                <li>
+                    <a href="{{Route('admin.setting')}}">
                         <i class="iconsminds-security-settings"></i>
                         <span>الاعدادات</span>
                     </a>
-                </li> --}}
+                </li>
             </ul>
         </div>
     </div>

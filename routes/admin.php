@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\IntroController;
 use App\Http\Controllers\Admin\HelpController;
 use App\Http\Controllers\Admin\KycController;
+use App\Http\Controllers\Admin\SettingController;
 
 //admin login routes
 Route::get('/login', [AuthController::class, 'login'])->name('login');
@@ -27,6 +28,9 @@ Route::middleware('auth:admin')->name('admin.')->group(function () {
     Route::resource('/intros',IntroController::class)->except(['show']);
     //help crud routes
     Route::resource('/helps',HelpController::class)->except(['show']);
+    //Edit Setting
+    Route::get('/setting',[SettingController::class,'index'])->name('setting');
+    Route::post('/setting',[SettingController::class,'store'])->name('setting.store');
     //kyc verification
     Route::get('/kycs', [KycController::class, 'index'])->name('kyc');
     Route::get('/display-kyc/{id}', [KycController::class, 'show'])->name('kyc.show');

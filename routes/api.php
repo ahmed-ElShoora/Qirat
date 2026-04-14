@@ -6,12 +6,15 @@ use App\Http\Controllers\Api\HelpController;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\GoogleSignController;
 use App\Http\Controllers\Api\KycController;
+use App\Http\Controllers\Api\SettingController;
 
 Route::middleware(['api.password','change.lang','throttle:60,1'])->prefix('v1')->group(function () {
     // Intro
     Route::get('/intro', IntroController::class);
     // Help
     Route::get('/help', HelpController::class);
+    //Setting Route
+    Route::get('/setting', SettingController::class);
     // Auth
     Route::post('/register', [AuthController::class, 'register']);
     Route::post('/verify', [AuthController::class, 'verify']);
