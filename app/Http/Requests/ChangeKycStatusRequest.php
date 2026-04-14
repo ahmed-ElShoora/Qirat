@@ -23,7 +23,7 @@ class ChangeKycStatusRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'kyc_id' => 'required|exits',
+            'id' => 'required|exists:kycs,id',
             'status' => 'required|in:approved,rejected'
         ];
     }

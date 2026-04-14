@@ -109,6 +109,12 @@
                         <span>صفحات المساعدات</span>
                     </a>
                 </li>
+                <li>
+                    <a href="{{Route('admin.kyc')}}">
+                        <i class="simple-icon-user-following"></i>
+                        <span>مراجعة طلبات التأكيد</span>
+                    </a>
+                </li>
                 {{-- <li>
                     <a href="{{Route('setting')}}">
                         <i class="iconsminds-security-settings"></i>

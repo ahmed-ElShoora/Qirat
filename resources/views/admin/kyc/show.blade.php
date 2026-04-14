@@ -13,99 +13,80 @@
 
                     <div class="card mb-4">
                         <div class="card-body">
-                        <form method="post" action="{{Route('admin.intros.update',$intro->id)}}" enctype="multipart/form-data">
-                            @csrf
-                            @method('PUT')
-                            <div class="tooltip-label-right">
-                                <div class="error-l-100 position-relative form-group">
-                                    <label>الاسم بالعربي</label>
-                                    <input name="title_ar" required="" id="Name" value="{{ $intro->title_ar }}" type="text" class="form-control">
-                                    @error('title_ar')
-                                    <div class="alert alert-danger" role="alert" style="text-align: center">
-                                        {{ $message }}
-                                    </div>
-                                    @enderror
-                                    <div class="invalid-tooltip">Name</div>
+                            <form method="post" action="{{Route('admin.kyc.status')}}">
+                                @csrf
+                                <input type="text" hidden value="{{$data->id}}" name='id'>
+                                <select name="status" class="form-control">
+                                    <option value="approved" selected>قبول</option>
+                                    <option value="rejected">رفض</option>
+                                </select>
+                                <button class="btn btn-primary mt-2" type="submit">تاكيد</button>
+                            </form>
+                            <hr>
+                            <h3 class="mt-0.5">بيانات المستخدم</h3>
+                            <p><strong>الإسم:</strong> {{ $data->user->name }}</p>
+                            <p><strong>الإيميل:</strong> {{ $data->user->email }}</p>
+
+                            <hr>
+
+                            <h3>بيانات التحقق KYC</h3>
+
+                            <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+
+                                <div>
+                                    <p>وجه البطاقة</p>
+                                    <img src="{{ asset('storage/' . $data->front_id) }}" width="200">
                                 </div>
-                            </div>
-                            <div class="tooltip-label-right">
-                                <div class="error-l-100 position-relative form-group">
-                                    <label>الاسم بالإنجليزي</label>
-                                    <input name="title_en" required="" value="{{$intro->title_en}}" id="Name" type="text" class="form-control">
-                                    @error('title_en')
-                                    <div class="alert alert-danger" role="alert" style="text-align: center">
-                                        {{ $message }}
-                                    </div>
-                                    @enderror
-                                    <div class="invalid-tooltip">Name</div>
+
+                                <div>
+                                    <p>ضهر البطاقة</p>
+                                    <img src="{{ asset('storage/' . $data->back_id) }}" width="200">
                                 </div>
+
+                                <div>
+                                    <p>صورة سيلفي</p>
+                                    <img src="{{ asset('storage/' . $data->selfie) }}" width="200">
+                                </div>
+
                             </div>
 
-                            <div class="tooltip-label-right">
-                                <div class="error-l-100 position-relative form-group">
-                                    <label>الوصف بالعربي</label>
-                                    <input name="description_ar" required="" value="{{ $intro->description_ar }}" id="Description" type="text" class="form-control">
-                                    @error('description_ar')
-                                    <div class="alert alert-danger" role="alert" style="text-align: center">
-                                        {{ $message }}
-                                    </div>
-                                    @enderror
-                                    <div class="invalid-tooltip">Name</div>
-                                </div>
-                            </div>
-                            <div class="tooltip-label-right">
-                                <div class="error-l-100 position-relative form-group">
-                                    <label>الوصف بالإنجليزي</label>
-                                    <input name="description_en" required="" value="{{$intro->description_en}}" id="Description" type="text" class="form-control">
-                                    @error('description_en')
-                                    <div class="alert alert-danger" role="alert" style="text-align: center">
-                                        {{ $message }}
-                                    </div>
-                                    @enderror
-                                    <div class="invalid-tooltip">Name</div>
-                                </div>
-                            </div>
+                            <hr>
 
-                            <div class="tooltip-label-right">
-                                <div class="error-l-100 position-relative form-group">
-                                    <label>الرابط</label>
-                                    <input name="link" id="Name" value="{{$intro->link}}" type="text" class="form-control">
-                                    @error('link')
-                                    <div class="alert alert-danger" role="alert" style="text-align: center">
-                                        {{ $message }}
-                                    </div>
-                                    @enderror
-                                    <div class="invalid-tooltip">Name</div>
-                                </div>
-                            </div>
+                            {{-- BROKER ONLY --}}
+                            @if($data->type === 'broker')
 
-                            <div class="tooltip-label-right">
-                                <div class="error-l-100 position-relative form-group">
-                                    <label>صورة الخلفية</label>
-                                    <input name="image_background" id="Name" type="file" accept="image/*" class="form-control">
-                                    @error('image_background')
-                                    <div class="alert alert-danger" role="alert" style="text-align: center">
-                                        {{ $message }}
-                                    </div>
-                                    @enderror
-                                    <div class="invalid-tooltip">Name</div>
-                                </div>
-                            </div>
-                            <div class="tooltip-label-right">
-                                <div class="error-l-100 position-relative form-group">
-                                    <label>صورة الايقونة</label>
-                                    <input name="image_icon" id="Name" type="file" accept="image/*" class="form-control">
-                                    @error('image_icon')
-                                    <div class="alert alert-danger" role="alert" style="text-align: center">
-                                        {{ $message }}
-                                    </div>
-                                    @enderror
-                                    <div class="invalid-tooltip">Name</div>
-                                </div>
-                            </div>
+                                <h3>بيانات البروكر</h3>
 
-                            <button class="btn btn-primary mt-5" type="submit">تاكيد</button>
-                        </form>
+                                @if($data->cv)
+                                    <p>
+                                        <a href="{{ asset('storage/' . $data->cv) }}" target="_blank" class="btn btn-primary">
+                                            عرض ال CV
+                                        </a>
+                                    </p>
+                                @endif
+
+                                <hr>
+
+                                <h3>بيانات التواصل الاجتماعي</h3>
+
+                                @if($data->facebook_link)
+                                    <p>فيسبوك: <a href="{{ $data->facebook_link }}" target="_blank">{{ $data->facebook_link }}</a></p>
+                                @endif
+
+                                @if($data->twitter_link)
+                                    <p>تويتر: <a href="{{ $data->twitter_link }}" target="_blank">{{ $data->twitter_link }}</a></p>
+                                @endif
+
+                                @if($data->linkedin_link)
+                                    <p>لينكدإن: <a href="{{ $data->linkedin_link }}" target="_blank">{{ $data->linkedin_link }}</a></p>
+                                @endif
+
+                                @if($data->instagram_link)
+                                    <p>انستجرام: <a href="{{ $data->instagram_link }}" target="_blank">{{ $data->instagram_link }}</a></p>
+                                @endif
+
+                            @endif
+
 
                         </div>
                     </div>

@@ -20,25 +20,20 @@
                         <table class="table">
                             <thead>
                             <tr>
-                                <th scope="col" class="text-center">الاسم بالعربي</th>
-                                <th scope="col" class="text-center">تعديل</th>
-                                <th scope="col" class="text-center">حذف</th>
+                                <th scope="col" class="text-center">الاسم</th>
+                                <th scope="col" class="text-center">النوع</th>
+                                <th scope="col" class="text-center">عرض</th>
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($intros as $intro)
+                            @foreach($data as $kyc)
                                 <tr>
-                                    <td class="text-center">{{$intro->title_ar}}</td>
+                                    <td class="text-center">{{$kyc->user->name}}</td>
+                                    <td class="text-center">{{$kyc->type}}</td>
                                     <td class="text-center">
-                                        <a href="{{Route('admin.intros.edit',$intro->id)}}" class="btn btn-sm btn-outline-primary">تعديل</a>
+                                        <a href="{{Route('admin.kyc.show',$kyc->id)}}" class="btn btn-sm btn-outline-primary">عرض</a>
                                     </td>
-                                    <td class="text-center">
-                                        <form method="post" action="{{Route('admin.intros.destroy',$intro->id)}}">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="btn btn-sm btn-outline-danger">حذف</button>
-                                        </form>
-                                    </td>
+                                    
                                 </tr>
                             @endforeach
                             </tbody>

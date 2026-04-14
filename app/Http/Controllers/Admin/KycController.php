@@ -12,22 +12,18 @@ class KycController extends Controller
         private KycService $kycService
     ){}
 
-    public function kycShares(){
-        $data = $this->kycService->getShares();
-        return view('admin.kyc.index',compact($data));
-    }
-
-    public function kycBrokers(){
-        $data = $this->kycService->getBrokers();
-        return view('admin.kyc.index',compact($data));
+    public function index(){
+        $data = $this->kycService->getKycs();
+        return view('admin.kyc.index',compact('data'));
     }
 
     public function show($id){
         $data = $this->kycService->getKyc($id);
-        return view('admin.kyc.show',compact($data));
+        return view('admin.kyc.show',compact('data'));
     }
 
-    public function changeStatusKyc(ChangeKycStatusRequest $request){
-        return redirect()->back();
+    public function updateStatus(ChangeKycStatusRequest $request){
+        $type = $this->kycService->updateStatus($request);
+        return redirect()->route('admin.kyc');
     }
 }

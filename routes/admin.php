@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\IntroController;
 use App\Http\Controllers\Admin\HelpController;
+use App\Http\Controllers\Admin\KycController;
 
 //admin login routes
 Route::get('/login', [AuthController::class, 'login'])->name('login');
@@ -27,8 +28,7 @@ Route::middleware('auth:admin')->name('admin.')->group(function () {
     //help crud routes
     Route::resource('/helps',HelpController::class)->except(['show']);
     //kyc verification
-    Route::get('/kyc-shares', [KycController::class, 'kycShares']);
-    Route::get('/kyc-brokers', [KycController::class, 'kycBrokers']);
-    Route::get('/display-kyc/{id}', [KycController::class, 'show']);
-    Route::post('/change-status-kyc', [KycController::class, 'changeStatusKyc']);
+    Route::get('/kycs', [KycController::class, 'index'])->name('kyc');
+    Route::get('/display-kyc/{id}', [KycController::class, 'show'])->name('kyc.show');
+    Route::post('/update-status-kyc', [KycController::class, 'updateStatus'])->name('kyc.status');
 });
