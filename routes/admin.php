@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\IntroController;
 use App\Http\Controllers\Admin\HelpController;
 use App\Http\Controllers\Admin\KycController;
 use App\Http\Controllers\Admin\SettingController;
+use App\Http\Controllers\Admin\DeveloperController;
 
 //admin login routes
 Route::get('/login', [AuthController::class, 'login'])->name('login');
@@ -28,6 +29,8 @@ Route::middleware('auth:admin')->name('admin.')->group(function () {
     Route::resource('/intros',IntroController::class)->except(['show']);
     //help crud routes
     Route::resource('/helps',HelpController::class)->except(['show']);
+    //developer crud
+    Route::resource('/developers',DeveloperController::class)->except(['show', 'destroy']);
     //Edit Setting
     Route::get('/setting',[SettingController::class,'index'])->name('setting');
     Route::post('/setting',[SettingController::class,'store'])->name('setting.store');

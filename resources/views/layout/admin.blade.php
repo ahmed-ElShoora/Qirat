@@ -104,6 +104,12 @@
                     </a>
                 </li>
                 <li>
+                    <a href="{{Route('admin.developers.index')}}">
+                        <i class="simple-icon-briefcase"></i>
+                        <span>المطورين</span>
+                    </a>
+                </li>
+                <li>
                     <a href="{{Route('admin.helps.index')}}">
                         <i class="simple-icon-people"></i>
                         <span>صفحات المساعدات</span>
