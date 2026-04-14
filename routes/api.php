@@ -5,6 +5,7 @@ use App\Http\Controllers\Api\IntroController;
 use App\Http\Controllers\Api\HelpController;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\GoogleSignController;
+use App\Http\Controllers\Api\KycController;
 
 Route::middleware(['api.password','change.lang','throttle:60,1'])->prefix('v1')->group(function () {
     // Intro
@@ -25,6 +26,16 @@ Route::middleware(['api.password','change.lang','throttle:60,1'])->prefix('v1')-
         Route::get('/devices', [AuthController::class, 'devices']);
         Route::get('/logout', [AuthController::class, 'logout']);
         Route::get('/logout-all', [AuthController::class, 'logoutAll']);
+        // KYC
+        Route::post('/kyc', [KycController::class, 'submit']);
+        //must be kyc approved for shares
+        Route::middleware(['kyc:shares'])->group(function () {
+            
+        });
+        //must be kyc approved for broker
+        Route::middleware(['kyc:broker'])->group(function () {  
+
+        });
 
     });
 

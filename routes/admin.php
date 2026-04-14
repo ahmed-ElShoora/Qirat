@@ -26,4 +26,9 @@ Route::middleware('auth:admin')->name('admin.')->group(function () {
     Route::resource('/intros',IntroController::class)->except(['show']);
     //help crud routes
     Route::resource('/helps',HelpController::class)->except(['show']);
+    //kyc verification
+    Route::get('/kyc-shares', [KycController::class, 'kycShares']);
+    Route::get('/kyc-brokers', [KycController::class, 'kycBrokers']);
+    Route::get('/display-kyc/{id}', [KycController::class, 'show']);
+    Route::post('/change-status-kyc', [KycController::class, 'changeStatusKyc']);
 });

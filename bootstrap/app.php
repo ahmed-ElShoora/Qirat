@@ -6,6 +6,8 @@ use Illuminate\Foundation\Configuration\Middleware;
 use App\Http\Middleware\ApiPassword;
 use App\Http\Middleware\ChangeLang;
 use App\Exceptions\Handler as ExceptionHandler;
+use App\Http\Middleware\CheckKyc;
+
 return Application::configure(basePath: dirname(__DIR__))
     ->withRouting(
         web: __DIR__.'/../routes/admin.php',
@@ -17,6 +19,7 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->alias([
             'api.password' => ApiPassword::class,
             'change.lang' => ChangeLang::class,
+            'kyc' => CheckKyc::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {

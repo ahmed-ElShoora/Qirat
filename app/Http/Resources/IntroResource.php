@@ -14,6 +14,9 @@ class IntroResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
+        $background = $this->image_background != null ? asset(
+                'storage/' . $this->image_background
+            ) : null;
         return [
             'id' => $this->id,
             'title' => $this->title,
@@ -22,9 +25,7 @@ class IntroResource extends JsonResource
             'icon' => asset(
                 'storage/' . $this->image_icon
             ),
-            'background' => asset(
-                'storage/' . $this->image_background
-            ),
+            'background' => $background
         ];
     }
 }

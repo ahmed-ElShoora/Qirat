@@ -118,7 +118,7 @@ class AuthService
 
     public function me()
     {
-        return new UserResource(auth()->user());
+        return new UserResource(auth()->user()->load('kyc'));
     }
 
     public function getSignDevices()
