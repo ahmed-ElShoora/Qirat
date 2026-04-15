@@ -17,7 +17,10 @@ class SettingController extends Controller
     }
 
     public function store(StoreSettingRequest $request){
-        $this->settingService->setSetting($request);
-        return redirect()->back();
+        $result = $this->settingService->setSetting($request);
+        if (!$result) {
+            return back()->withErrors(['error' => 'Failed to update setting. Please try again.']);
+        }
+        return redirect()->back()->with('success', 'Setting updated successfully');
     }
 }

@@ -38,7 +38,7 @@ class IntroController extends Controller
         if (!$result) {
             return back()->withErrors(['error' => 'Failed to create intro. Please try again.']);
         }
-        return redirect()->route('admin.intros.index');
+        return redirect()->route('admin.intros.index')->with('success', 'Intro created successfully');
     }
 
     /**
@@ -59,7 +59,7 @@ class IntroController extends Controller
         if (!$result) {
             return back()->withErrors(['error' => 'Failed to update intro. Please try again.']);
         }
-        return redirect()->route('admin.intros.index');
+        return redirect()->route('admin.intros.index')->with('success', 'Intro updated successfully');
     }
 
     /**
@@ -71,6 +71,6 @@ class IntroController extends Controller
         if (!$result) {
             return back()->withErrors(['error' => 'Failed to delete intro. Please try again.']);
         }
-        return redirect()->route('admin.intros.index');
+        return redirect()->route('admin.intros.index')->with('success', 'Intro deleted successfully');
     }
 }

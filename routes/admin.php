@@ -9,6 +9,8 @@ use App\Http\Controllers\Admin\HelpController;
 use App\Http\Controllers\Admin\KycController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\DeveloperController;
+use App\Http\Controllers\Admin\TypeController;
+use App\Http\Controllers\Admin\SignatureController;
 
 //admin login routes
 Route::get('/login', [AuthController::class, 'login'])->name('login');
@@ -31,6 +33,10 @@ Route::middleware('auth:admin')->name('admin.')->group(function () {
     Route::resource('/helps',HelpController::class)->except(['show']);
     //developer crud
     Route::resource('/developers',DeveloperController::class)->except(['show', 'destroy']);
+    //types crud
+    Route::resource('/types',TypeController::class)->except(['show', 'destroy']);
+    //Signature crud
+    Route::resource('/signatures',SignatureController::class)->except(['show', 'destroy']);
     //Edit Setting
     Route::get('/setting',[SettingController::class,'index'])->name('setting');
     Route::post('/setting',[SettingController::class,'store'])->name('setting.store');

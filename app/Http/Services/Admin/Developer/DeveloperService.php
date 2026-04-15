@@ -21,6 +21,8 @@ class DeveloperService
         $developer = Developer::create([
             'name_ar'=>$data['name_ar'],
             'name_en'=>$data['name_en'],
+            'description_ar'=>$data['description_ar'],
+            'description_en'=>$data['description_en'],
             'logo'=>$this->uploadImage($data['logo'],'developers')
         ]);
         return $developer ? true : false;
@@ -32,6 +34,8 @@ class DeveloperService
             [
                 'name_ar'=>$data['name_ar'],
                 'name_en'=>$data['name_en'],
+                'description_ar'=>$data['description_ar'],
+                'description_en'=>$data['description_en'],
             ]
         );
         if (isset($data['logo'])) {

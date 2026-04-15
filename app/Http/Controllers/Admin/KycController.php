@@ -23,7 +23,10 @@ class KycController extends Controller
     }
 
     public function updateStatus(ChangeKycStatusRequest $request){
-        $type = $this->kycService->updateStatus($request);
-        return redirect()->route('admin.kyc');
+        $result = $this->kycService->updateStatus($request);
+        if(!$result){
+            return back()->withErrors(['error' => 'Failed to update Kyc status. Please try again.']);
+        }
+        return redirect()->route('admin.kyc')->with('success', 'Kyc status updated successfully');
     }
 }

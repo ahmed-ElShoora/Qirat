@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreateDeveloperRequest extends FormRequest
+class EditSignatureRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,11 +23,8 @@ class CreateDeveloperRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name_ar' => ['required', 'string', 'max:255'],
-            'name_en' => ['required', 'string', 'max:255'],
-            'logo' => ['required', 'image', 'mimes:jpeg,png,jpg,gif,svg'],
-            'description_ar' => ['required', 'string'],
-            'description_en' => ['required', 'string'],
+            'name' => ['required', 'string', 'max:255'],
+            'icon' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg'],
         ];
     }
 }

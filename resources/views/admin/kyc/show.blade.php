@@ -16,10 +16,12 @@
                             <form method="post" action="{{Route('admin.kyc.status')}}">
                                 @csrf
                                 <input type="text" hidden value="{{$data->id}}" name='id'>
-                                <select name="status" class="form-control">
-                                    <option value="approved" selected>قبول</option>
-                                    <option value="rejected">رفض</option>
-                                </select>
+                                <div class="select-wrapper">
+                                    <select name="status" class="form-control form-select"style="width: 50%;>
+                                        <option value="approved" selected>قبول</option>
+                                        <option value="rejected">رفض</option>
+                                    </select>
+                                </div>
                                 <button class="btn btn-primary mt-2" type="submit">تاكيد</button>
                             </form>
                             <hr>

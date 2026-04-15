@@ -43,6 +43,31 @@
 
                             <div class="tooltip-label-right">
                                 <div class="error-l-100 position-relative form-group">
+                                    <label>الوصف بالعربي</label>
+                                    <input name="description_ar" required="" value="{{$developer->description_ar}}" id="Description" type="text" class="form-control">
+                                    @error('description_ar')
+                                    <div class="alert alert-danger" role="alert" style="text-align: center">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
+                                    <div class="invalid-tooltip">Name</div>
+                                </div>
+                            </div>
+                            <div class="tooltip-label-right">
+                                <div class="error-l-100 position-relative form-group">
+                                    <label>الوصف بالإنجليزي</label>
+                                    <input name="description_en" required="" value="{{$developer->description_en}}" id="Description" type="text" class="form-control">
+                                    @error('description_en')
+                                    <div class="alert alert-danger" role="alert" style="text-align: center">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
+                                    <div class="invalid-tooltip">Name</div>
+                                </div>
+                            </div>
+
+                            <div class="tooltip-label-right">
+                                <div class="error-l-100 position-relative form-group">
                                     <label>صورة الايقونة</label>
                                     <input name="logo" id="Name" type="file" accept="image/*" class="form-control">
                                     @error('logo')

@@ -16,9 +16,8 @@ class KycService{
 
     public function updateStatus($data){
         $kyc = Kyc::findOrFail($data['id']);
-        $kyc->update([
+        return $kyc->update([
             'status' => $data['status']
         ]);
-        return $kyc->type;
     }
 }

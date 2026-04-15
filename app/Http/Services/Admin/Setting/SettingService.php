@@ -12,11 +12,12 @@ class SettingService{
     }
 
     public function setSetting($request){
-        Setting::where('var','phone')->update([
+        $phone = Setting::where('var','phone')->update([
             'value'=>$request->phone
         ]);
-        Setting::where('var','email')->update([
+        $email = Setting::where('var','email')->update([
             'value'=>$request->email
         ]);
+        return $phone && $email;
     }
 }

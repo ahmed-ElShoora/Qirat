@@ -29,7 +29,74 @@
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
 
+    <style>
+        .select-wrapper {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
 
+        .form-select {
+            width: 100%;
+            max-width: 100%;
+            box-sizing: border-box;
+        }
+    </style>
+
+    <style id="toast2">
+        .custom-toast {
+            position: relative;
+            margin-bottom: 15px;
+            padding: 16px 20px;
+            border-radius: 12px;
+            color: #fff;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            animation: slideIn 0.4s ease;
+            overflow: hidden;
+            font-size: 14px;
+        }
+
+        .custom-toast ul {
+            padding-right: 18px;
+            margin: 8px 0 0;
+        }
+
+        .toast-title {
+            font-weight: bold;
+            margin-bottom: 6px;
+            font-size: 15px;
+        }
+
+        .success-toast {
+            background: linear-gradient(135deg, #28a745, #20c997);
+        }
+
+        .error-toast {
+            background: linear-gradient(135deg, #dc3545, #fd7e14);
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+                transform: translateX(0);
+            }
+            to {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+        }
+    </style>
 </head>
 
 <body id="app-container" class="menu-default show-spinner vertical boxed">
@@ -110,6 +177,18 @@
                     </a>
                 </li>
                 <li>
+                    <a href="{{Route('admin.types.index')}}">
+                        <i class="simple-icon-home"></i>
+                        <span>انواع العقارات</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{Route('admin.signatures.index')}}">
+                        <i class="simple-icon-star"></i>
+                        <span>المميزات</span>
+                    </a>
+                </li>
+                <li>
                     <a href="{{Route('admin.helps.index')}}">
                         <i class="simple-icon-people"></i>
                         <span>صفحات المساعدات</span>
@@ -132,12 +211,44 @@
     </div>
 
 </div>
-@if(session('error'))
-    <div class="alert alert-danger">
-        {{ session('error') }}
-    </div>
-@endif
+
+<div id="toast-container" style="position: fixed; top: 20px; left: 20px; z-index: 9999; min-width: 320px;">
+
+    @if($errors->any())
+        <div class="custom-toast error-toast">
+            <div class="toast-title">حدث خطأ</div>
+
+            <ul class="mb-0">
+                @foreach($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
+    @if(session('success'))
+        <div class="custom-toast success-toast">
+            <div class="toast-title">نجاح</div>
+            <div>{{ session('success') }}</div>
+        </div>
+    @endif
+
+</div>
 @yield('content')
+
+<script id="toast3">
+    setTimeout(() => {
+        const toasts = document.querySelectorAll('.custom-toast');
+
+        toasts.forEach(toast => {
+            toast.style.animation = 'fadeOut 0.5s ease forwards';
+
+            setTimeout(() => {
+                toast.remove();
+            }, 500);
+        });
+    }, 3000);
+</script>
 
 <script src="{{ asset('js/vendor/quill.min.js') }}"></script>
 <script src="{{ asset('js/vendor/jquery-3.3.1.min.js') }}"></script>

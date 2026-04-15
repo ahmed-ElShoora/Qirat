@@ -39,8 +39,8 @@ class AuthService
             ]
         );
 
-        // Mail::to($user->email)->send(new SendOtpMail($code));
-        Log::info("OTP for {$type} sent to {$user->email}: {$code}");
+        Mail::to($user->email)->send(new SendOtpMail($code));
+        // Log::info("OTP for {$type} sent to {$user->email}: {$code}");
     }
 
     public function verify($email, $code)

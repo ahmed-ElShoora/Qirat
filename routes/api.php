@@ -9,6 +9,7 @@ use App\Http\Controllers\Api\KycController;
 use App\Http\Controllers\Api\SettingController;
 use App\Http\Controllers\Api\AffliateController;
 use App\Http\Controllers\Api\DeveloperController;
+use App\Http\Controllers\Api\TypeController;
 
 Route::middleware(['api.password','change.lang','throttle:60,1'])->prefix('v1')->group(function () {
     // Intro
@@ -17,6 +18,8 @@ Route::middleware(['api.password','change.lang','throttle:60,1'])->prefix('v1')-
     Route::get('/developers', DeveloperController::class);
     // Help
     Route::get('/help', HelpController::class);
+    // Types
+    Route::get('/types', TypeController::class);
     //Setting Route
     Route::get('/setting', SettingController::class);
     // Auth

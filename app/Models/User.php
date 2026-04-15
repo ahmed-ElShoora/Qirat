@@ -12,6 +12,7 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use App\Models\Otp;
 use App\Models\Kyc;
+use App\Models\Love;
 
 #[Fillable(['name', 'email', 'password', 'referral_code','email_verified_at'])]
 #[Hidden(['password', 'remember_token'])]
@@ -41,5 +42,10 @@ class User extends Authenticatable
     public function kyc()
     {
         return $this->hasMany(Kyc::class);
+    }
+
+    public function loves()
+    {
+        return $this->hasMany(Love::class);
     }
 }

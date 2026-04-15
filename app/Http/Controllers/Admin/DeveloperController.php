@@ -38,7 +38,7 @@ class DeveloperController extends Controller
         if (!$result) {
             return back()->withErrors(['error' => 'Failed to create Developer. Please try again.']);
         }
-        return redirect()->route('admin.developers.index');
+        return redirect()->route('admin.developers.index')->with('success', 'Developer created successfully');
     }
 
     /**
@@ -59,6 +59,6 @@ class DeveloperController extends Controller
         if (!$result) {
             return back()->withErrors(['error' => 'Failed to update developer. Please try again.']);
         }
-        return redirect()->route('admin.developers.index');
+        return redirect()->route('admin.developers.index')->with('success', 'Developer updated successfully');
     }
 }

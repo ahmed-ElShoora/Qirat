@@ -13,8 +13,8 @@ class HelpService
 
     public function createHelp(array $data)
     {
-        $data['image_icon'] = $this->uploadImage($data['image_icon']);
-        Help::create($data);
+        $data['image_icon'] = $this->uploadImage($data['image_icon'], 'helps');
+        return Help::create($data);
     }
 
     public function getHelpById(string $id)
@@ -27,15 +27,15 @@ class HelpService
         $help = Help::findOrFail($id);
         if(isset($data['image_icon'])){
             $this->deleteImage($help->image_icon);
-            $data['image_icon'] = $this->uploadImage($data['image_icon']);
+            $data['image_icon'] = $this->uploadImage($data['image_icon'], 'helps');
         }
-        $help->update($data);
+        return $help->update($data);
     }
 
     public function deleteHelp(string $id)
     {
         $help = Help::findOrFail($id);
         $this->deleteImage($help->image_icon);
-        $help->delete();
+        return $help->delete();
     }
 }

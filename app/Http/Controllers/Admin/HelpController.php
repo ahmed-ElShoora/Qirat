@@ -34,8 +34,11 @@ class HelpController extends Controller
      */
     public function store(CreateHelpRequest $request)
     {
-        $this->helpService->createHelp($request->validated());
-        return redirect()->route('admin.helps.index');
+        $result = $this->helpService->createHelp($request->validated());
+        if (!$result) {
+            return back()->withErrors(['error' => 'Failed to create help. Please try again.']);
+        }
+        return redirect()->route('admin.helps.index')->with('success', 'Help created successfully');
     }
 
     /**
@@ -52,8 +55,11 @@ class HelpController extends Controller
      */
     public function update(EditHelpRequest $request, string $id)
     {
-        $this->helpService->updateHelp($id, $request->validated());
-        return redirect()->route('admin.helps.index');
+        $result = $this->helpService->updateHelp($id, $request->validated());
+        if (!$result) {
+            return back()->withErrors(['error' => 'Failed to update help. Please try again.']);
+        }
+        return redirect()->route('admin.helps.index')->with('success', 'Help updated successfully');
     }
 
     /**
@@ -61,7 +67,10 @@ class HelpController extends Controller
      */
     public function destroy(string $id)
     {
-        $this->helpService->deleteHelp($id);
-        return redirect()->route('admin.helps.index');
+        $result = $this->helpService->deleteHelp($id);
+        if (!$result) {
+            return back()->withErrors(['error' => 'Failed to delete help. Please try again.']);
+        }
+        return redirect()->route('admin.helps.index')->with('success', 'Help deleted successfully');
     }
 }

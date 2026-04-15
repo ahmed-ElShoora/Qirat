@@ -11,14 +11,18 @@ class AdminController extends Controller
     public function __construct(
         private AdminService $adminService
     ){}
+
     public function index(){
         $admins = $this->adminService->getAll();
         return view('admin.admin.index',compact('admins'));
     }
 
     public function delete($id){
-        $this->adminService->delete($id);
-        return redirect()->back();
+        $result = $this->adminService->delete($id);
+        if(!$result){
+            return back()->withErrors(['error' => 'Failed to delete admin. Please try again.']);
+        }
+        return redirect()->back()->with('success', 'Admin deleted successfully');
     }
 
     public function create(){
@@ -26,7 +30,10 @@ class AdminController extends Controller
     }
 
     public function store(CreateAdminRequest $request){
-        $this->adminService->create($request);
-        return redirect()->route('admin.admins');
+        $result = $this->adminService->create($request);
+        if(!$result){
+            return back()->withErrors(['error' => 'Failed to create admin. Please try again.']);
+        }
+        return redirect()->route('admin.admins')->with('success', 'Admin created successfully');
     }
 }

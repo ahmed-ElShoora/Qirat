@@ -9,13 +9,15 @@ class AdminService
         return Admin::get();
     }
     public function delete($id){
-        Admin::findOrFail($id)->delete();
+        $admin = Admin::findOrFail($id);
+        return $admin->delete();
     }
     public function create($request){
-        Admin::create([
+        $admin = Admin::create([
             'email'=>$request->email,
             'name'=>$request->name,
             'password'=>Hash::make($request->password)
         ]);
+        return $admin ? true : false;
     }
 }
