@@ -11,6 +11,8 @@ use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\DeveloperController;
 use App\Http\Controllers\Admin\TypeController;
 use App\Http\Controllers\Admin\SignatureController;
+use App\Http\Controllers\Admin\UnitController;
+use App\Http\Controllers\Admin\PhasesController;
 
 //admin login routes
 Route::get('/login', [AuthController::class, 'login'])->name('login');
@@ -33,6 +35,12 @@ Route::middleware('auth:admin')->name('admin.')->group(function () {
     Route::resource('/helps',HelpController::class)->except(['show']);
     //developer crud
     Route::resource('/developers',DeveloperController::class)->except(['show', 'destroy']);
+    //unit crud
+    Route::resource('/units',UnitController::class)->except(['show', 'destroy']);
+    Route::get('/units/{id}/promotion', [UnitController::class, 'promotion'])->name('units.promotion');
+    Route::get('/units/{id}/hide', [UnitController::class, 'hide'])->name('units.hide');
+    //unit phases crud
+    Route::resource('/units/{unit_id}/phases', PhasesController::class)->except(['show']);
     //types crud
     Route::resource('/types',TypeController::class)->except(['show', 'destroy']);
     //Signature crud

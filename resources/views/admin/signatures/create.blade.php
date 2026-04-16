@@ -17,7 +17,7 @@
                             @csrf
                             <div class="tooltip-label-right">
                                 <div class="error-l-100 position-relative form-group">
-                                    <label>الاسم </label>
+                                    <label>الاسم ***</label>
                                     <input name="name" required="" id="Name" type="text" class="form-control">
                                     @error('name')
                                     <div class="alert alert-danger" role="alert" style="text-align: center">
@@ -30,7 +30,7 @@
 
                             <div class="tooltip-label-right">
                                 <div class="error-l-100 position-relative form-group">
-                                    <label>صورة الايقونة</label>
+                                    <label>صورة الايقونة ***</label>
                                     <input name="icon" required="" id="Name" type="file" accept="image/*" class="form-control">
                                     @error('icon')
                                     <div class="alert alert-danger" role="alert" style="text-align: center">

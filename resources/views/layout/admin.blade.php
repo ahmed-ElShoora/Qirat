@@ -165,6 +165,12 @@
                     </a>
                 </li>
                 <li>
+                    <a href="{{Route('admin.units.index')}}">
+                        <i class="simple-icon-organization"></i>
+                        <span>الوحدات</span>
+                    </a>
+                </li>
+                <li>
                     <a href="{{Route('admin.intros.index')}}">
                         <i class="simple-icon-doc"></i>
                         <span>صفحات البداية</span>
@@ -247,7 +253,7 @@
                 toast.remove();
             }, 500);
         });
-    }, 3000);
+    }, 6000);
 </script>
 
 <script src="{{ asset('js/vendor/quill.min.js') }}"></script>

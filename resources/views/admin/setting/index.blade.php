@@ -15,7 +15,7 @@
                                     
                                     <div class="tooltip-label-right">
                                         <div class="error-l-100 position-relative form-group">
-                                            <h5 class="">رقم الهاتف</h5>
+                                            <h5 class="">رقم الهاتف ***</h5>
                                             <input name="phone" required value="{{$data['phone']}}" class="form-control">
                                             @error('phone')
                                                 <div class="alert alert-danger" role="alert" style="text-align: center">
@@ -26,7 +26,7 @@
                                     </div>
                                     <div class="tooltip-label-right">
                                         <div class="error-l-100 position-relative form-group">
-                                            <h5 class="">ايميل</h5>
+                                            <h5 class="">ايميل ***</h5>
                                             <input name="email" required value="{{$data['email']}}" class="form-control">
                                             @error('email')
                                                 <div class="alert alert-danger" role="alert" style="text-align: center">

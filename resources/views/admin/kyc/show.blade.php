@@ -17,7 +17,7 @@
                                 @csrf
                                 <input type="text" hidden value="{{$data->id}}" name='id'>
                                 <div class="select-wrapper">
-                                    <select name="status" class="form-control form-select"style="width: 50%;>
+                                    <select name="status" class="form-control form-select"style="width: 50%;">
                                         <option value="approved" selected>قبول</option>
                                         <option value="rejected">رفض</option>
                                     </select>

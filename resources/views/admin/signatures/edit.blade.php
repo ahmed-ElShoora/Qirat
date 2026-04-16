@@ -18,7 +18,7 @@
                             @method('PUT')
                             <div class="tooltip-label-right">
                                 <div class="error-l-100 position-relative form-group">
-                                    <label>الاسم </label>
+                                    <label>الاسم ***</label>
                                     <input name="name" required="" id="Name" type="text" value="{{ $signature->name }}" class="form-control">
                                     @error('name')
                                     <div class="alert alert-danger" role="alert" style="text-align: center">

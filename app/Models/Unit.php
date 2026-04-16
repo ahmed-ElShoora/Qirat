@@ -8,6 +8,7 @@ use App\Models\Developer;
 use App\Models\Signature;
 use App\Models\Love;
 use App\Models\Image;
+use App\Models\Phase;
 
 class Unit extends Model
 {
@@ -20,6 +21,7 @@ class Unit extends Model
         'developer_id',
         'other_type',
         'developer_price',
+        'project_state',
         'resale_price',
         'phone_number',
         'whatsapp',
@@ -32,7 +34,9 @@ class Unit extends Model
         'digital_brochure',
         'pay_amount_per_years',
         'payment_percentage_per_year',
-        'is_promotion'
+        'is_promotion',
+        'is_hide',
+        'years_count'
     ];
 
     public function type(){
@@ -53,5 +57,9 @@ class Unit extends Model
 
     public function images(){
         return $this->hasMany(Image::class);
+    }
+
+    public function phases(){
+        return $this->hasMany(Phase::class);
     }
 }

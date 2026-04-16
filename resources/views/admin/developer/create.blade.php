@@ -17,7 +17,7 @@
                             @csrf
                             <div class="tooltip-label-right">
                                 <div class="error-l-100 position-relative form-group">
-                                    <label>الاسم بالعربي</label>
+                                    <label>الاسم بالعربي ***</label>
                                     <input name="name_ar" required="" id="Name" type="text" class="form-control">
                                     @error('name_ar')
                                     <div class="alert alert-danger" role="alert" style="text-align: center">
@@ -29,7 +29,7 @@
                             </div>
                             <div class="tooltip-label-right">
                                 <div class="error-l-100 position-relative form-group">
-                                    <label>الاسم بالإنجليزي</label>
+                                    <label>الاسم بالإنجليزي ***</label>
                                     <input name="name_en" required="" id="Name" type="text" class="form-control">
                                     @error('name_en')
                                     <div class="alert alert-danger" role="alert" style="text-align: center">
@@ -42,7 +42,7 @@
 
                             <div class="tooltip-label-right">
                                 <div class="error-l-100 position-relative form-group">
-                                    <label>الوصف بالعربي</label>
+                                    <label>الوصف بالعربي ***</label>
                                     <input name="description_ar" required="" id="Description" type="text" class="form-control">
                                     @error('description_ar')
                                     <div class="alert alert-danger" role="alert" style="text-align: center">
@@ -54,7 +54,7 @@
                             </div>
                             <div class="tooltip-label-right">
                                 <div class="error-l-100 position-relative form-group">
-                                    <label>الوصف بالإنجليزي</label>
+                                    <label>الوصف بالإنجليزي ***</label>
                                     <input name="description_en" required="" id="Description" type="text" class="form-control">
                                     @error('description_en')
                                     <div class="alert alert-danger" role="alert" style="text-align: center">
@@ -67,7 +67,7 @@
 
                             <div class="tooltip-label-right">
                                 <div class="error-l-100 position-relative form-group">
-                                    <label>صورة الايقونة</label>
+                                    <label>صورة الايقونة ***</label>
                                     <input name="logo" required="" id="Name" type="file" accept="image/*" class="form-control">
                                     @error('logo')
                                     <div class="alert alert-danger" role="alert" style="text-align: center">
