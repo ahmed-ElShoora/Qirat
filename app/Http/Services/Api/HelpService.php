@@ -1,7 +1,6 @@
 <?php
 namespace App\Http\Services\Api;
 use App\Models\Help;
-use Illuminate\Support\Facades\App;
 
 class HelpService
 {

@@ -66,6 +66,44 @@
                                     <div class="invalid-tooltip">Name</div>
                                 </div>
                             </div>
+
+                            <div class="tooltip-label-right">
+                                <div class="error-l-100 position-relative form-group">
+                                    <label>المساحة بالمتر</label>
+                                    <input name="sqm" id="Name" type="number" min="0" class="form-control">
+                                    @error('sqm')
+                                    <div class="alert alert-danger" role="alert" style="text-align: center">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
+                                    <div class="invalid-tooltip">Name</div>
+                                </div>
+                            </div>
+
+                            <div class="tooltip-label-right">
+                                <div class="error-l-100 position-relative form-group">
+                                    <label>العنوان بالعربي</label>
+                                    <input name="address_ar" id="Name" type="text" class="form-control">
+                                    @error('address_ar')
+                                    <div class="alert alert-danger" role="alert" style="text-align: center">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
+                                    <div class="invalid-tooltip">Name</div>
+                                </div>
+                            </div>
+                            <div class="tooltip-label-right">
+                                <div class="error-l-100 position-relative form-group">
+                                    <label>العنوان بالإنجليزي</label>
+                                    <input name="address_en" id="Name" type="text" class="form-control">
+                                    @error('address_en')
+                                    <div class="alert alert-danger" role="alert" style="text-align: center">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
+                                    <div class="invalid-tooltip">Name</div>
+                                </div>
+                            </div>
                             
                             <div class="tooltip-label-right">
                                 <div class="error-l-100 position-relative form-group">

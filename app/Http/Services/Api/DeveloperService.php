@@ -3,7 +3,6 @@
 namespace App\Http\Services\Api;
 
 use App\Models\Developer;
-use Illuminate\Support\Facades\App;
 use App\Http\Resources\DeveloperResource;
 
 class DeveloperService {

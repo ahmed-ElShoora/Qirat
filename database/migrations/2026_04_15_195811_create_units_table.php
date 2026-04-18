@@ -15,6 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('title_ar');
             $table->string('title_en');
+            $table->text('sqm')->nullable();
+            $table->string('address_ar')->nullable();
+            $table->string('address_en')->nullable();
             $table->string('primary_image');
             $table->string('type_id');
             $table->string('developer_id');

@@ -3,7 +3,6 @@
 namespace App\Http\Services\Api;
 
 use App\Models\Intro;
-use Illuminate\Support\Facades\App;
 
 class IntroService
 {

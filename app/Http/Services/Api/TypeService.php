@@ -3,7 +3,6 @@
 namespace App\Http\Services\Api;
 
 use App\Models\Type;
-use Illuminate\Support\Facades\App;
 
 class TypeService
 {

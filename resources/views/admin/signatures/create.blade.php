@@ -17,9 +17,22 @@
                             @csrf
                             <div class="tooltip-label-right">
                                 <div class="error-l-100 position-relative form-group">
-                                    <label>الاسم ***</label>
-                                    <input name="name" required="" id="Name" type="text" class="form-control">
-                                    @error('name')
+                                    <label>الاسم العربي ***</label>
+                                    <input name="name_ar" required="" id="Name" type="text" class="form-control">
+                                    @error('name_ar')
+                                    <div class="alert alert-danger" role="alert" style="text-align: center">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
+                                    <div class="invalid-tooltip">Name</div>
+                                </div>
+                            </div>
+
+                             <div class="tooltip-label-right">
+                                <div class="error-l-100 position-relative form-group">
+                                    <label>الاسم الانجليزي ***</label>
+                                    <input name="name_en" required="" id="Name" type="text" class="form-control">
+                                    @error('name_en')
                                     <div class="alert alert-danger" role="alert" style="text-align: center">
                                         {{ $message }}
                                     </div>

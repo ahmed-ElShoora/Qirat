@@ -16,7 +16,8 @@ class SignatureService
 
     public function create($data){
         $signature = Signature::create([
-            'name'=>$data['name'],
+            'name_ar'=>$data['name_ar'],
+            'name_en'=>$data['name_en'],
             'icon'=>$this->uploadImage($data['icon'],'signatures')
         ]);
         return $signature ? true : false;
@@ -26,7 +27,8 @@ class SignatureService
         $signature = Signature::findOrFail($id);
         $signature->fill(
             [
-                'name'=>$data['name'],
+                'name_ar'=>$data['name_ar'],
+                'name_en'=>$data['name_en'],
             ]
         );
         if (isset($data['icon'])) {

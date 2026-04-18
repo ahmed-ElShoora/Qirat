@@ -7,7 +7,7 @@ use App\Models\Unit;
 
 class Signature extends Model
 {
-    protected $fillable = ['id','name','icon'];
+    protected $fillable = ['id','name_ar','name_en','icon'];
 
     public function units(){
         return $this->belongsToMany(Unit::class);

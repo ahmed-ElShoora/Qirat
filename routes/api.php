@@ -10,12 +10,22 @@ use App\Http\Controllers\Api\SettingController;
 use App\Http\Controllers\Api\AffliateController;
 use App\Http\Controllers\Api\DeveloperController;
 use App\Http\Controllers\Api\TypeController;
+use App\Http\Controllers\Api\ExclusiveUnitController;
+use App\Http\Controllers\Api\UnitController;
+use App\Http\Controllers\Api\LoveController;
 
 Route::middleware(['api.password','change.lang','throttle:60,1'])->prefix('v1')->group(function () {
     // Intro
     Route::get('/intro', IntroController::class);
     // Get all Developer
     Route::get('/developers', DeveloperController::class);
+    // units
+    Route::get('/exclusive-unit', ExclusiveUnitController::class);
+    Route::get('/units', [UnitController::class, 'index']);
+    Route::get('/unit/{id}', [UnitController::class, 'show']);
+    //love unit
+    Route::get('/love', [LoveController::class, 'loves']);
+    Route::post('/love', [LoveController::class, 'addlove']);
     // Help
     Route::get('/help', HelpController::class);
     // Types

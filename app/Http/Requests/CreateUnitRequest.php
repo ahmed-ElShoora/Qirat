@@ -31,6 +31,11 @@ class CreateUnitRequest extends FormRequest
             'title_ar' => 'required|string|max:255',
             'title_en' => 'required|string|max:255',
 
+            'address_ar' => 'nullable|string',
+            'address_en' => 'nullable|string',
+
+            'sqm' => 'nullable|numeric|min:0',
+
             'developer_id' => 'required|exists:developers,id',
             'type_id' => 'required|exists:types,id',
 
