@@ -1,0 +1,992 @@
+{
+  "info": {
+    "_postman_id": "7d115573-e4e0-4105-8ee2-dc0a782c0fa3",
+    "name": "Qirat",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "43598260"
+  },
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "register",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "api_password",
+                "value": "{{api_password}}",
+                "type": "text"
+              },
+              {
+                "key": "lang",
+                "value": "{{lang}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "name",
+                  "value": "Ahmed Sami",
+                  "type": "text",
+                  "uuid": "2f0b5174-deaa-4545-b29e-13e7669fdbb0"
+                },
+                {
+                  "key": "email",
+                  "value": "ahmed1@test.com",
+                  "type": "text",
+                  "uuid": "a609f10a-72d1-4e3d-9cb2-69fd6819bdd8"
+                },
+                {
+                  "key": "password",
+                  "value": "11111111",
+                  "type": "text",
+                  "uuid": "4c720dae-2a29-4cb2-944b-8fd2cc41c4fa"
+                },
+                {
+                  "key": "referral_code",
+                  "value": "",
+                  "description": "optional",
+                  "type": "text",
+                  "uuid": "70fb4c5b-04bc-4e34-8ede-34cbe7c46fc7"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_link}}/register",
+              "host": [
+                "{{base_link}}"
+              ],
+              "path": [
+                "register"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "verify otp",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "api_password",
+                "value": "{{api_password}}",
+                "type": "text"
+              },
+              {
+                "key": "lang",
+                "value": "{{lang}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "email",
+                  "value": "ahmed1@test.com",
+                  "type": "text",
+                  "uuid": "56731397-35c6-4468-89d4-7e131beb7411"
+                },
+                {
+                  "key": "code",
+                  "value": "465751",
+                  "type": "text",
+                  "uuid": "9a947294-9e5e-4ebc-b361-ab9000ac81c8"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_link}}/verify",
+              "host": [
+                "{{base_link}}"
+              ],
+              "path": [
+                "verify"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "login",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "api_password",
+                "value": "{{api_password}}",
+                "type": "text"
+              },
+              {
+                "key": "lang",
+                "value": "{{lang}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "email",
+                  "value": "ahmed1@test.com",
+                  "type": "text",
+                  "uuid": "56731397-35c6-4468-89d4-7e131beb7411"
+                },
+                {
+                  "key": "password",
+                  "value": "11111111",
+                  "type": "text",
+                  "uuid": "9a947294-9e5e-4ebc-b361-ab9000ac81c8"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_link}}/login",
+              "host": [
+                "{{base_link}}"
+              ],
+              "path": [
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "forget",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "api_password",
+                "value": "{{api_password}}",
+                "type": "text"
+              },
+              {
+                "key": "lang",
+                "value": "{{lang}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "email",
+                  "value": "ahmed1@test.com",
+                  "type": "text",
+                  "uuid": "56731397-35c6-4468-89d4-7e131beb7411"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_link}}/forget",
+              "host": [
+                "{{base_link}}"
+              ],
+              "path": [
+                "forget"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "reset password",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "api_password",
+                "value": "{{api_password}}",
+                "type": "text"
+              },
+              {
+                "key": "lang",
+                "value": "{{lang}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "email",
+                  "value": "ahmed1@test.com",
+                  "type": "text",
+                  "uuid": "56731397-35c6-4468-89d4-7e131beb7411"
+                },
+                {
+                  "key": "code",
+                  "value": "548687",
+                  "type": "text",
+                  "uuid": "2625622e-c90a-4e46-adba-06ce18102901"
+                },
+                {
+                  "key": "password",
+                  "value": "password",
+                  "type": "text",
+                  "uuid": "91f68a29-35fc-4396-8473-18c9295bb0a8"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_link}}/reset",
+              "host": [
+                "{{base_link}}"
+              ],
+              "path": [
+                "reset"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "auth by google",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "api_password",
+                "value": "{{api_password}}",
+                "type": "text"
+              },
+              {
+                "key": "lang",
+                "value": "{{lang}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "token",
+                  "value": "ewhvgjktg",
+                  "type": "text",
+                  "uuid": "56731397-35c6-4468-89d4-7e131beb7411"
+                },
+                {
+                  "key": "referral_code",
+                  "value": "",
+                  "type": "text",
+                  "uuid": "2625622e-c90a-4e46-adba-06ce18102901",
+                  "description": "optional"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_link}}/google",
+              "host": [
+                "{{base_link}}"
+              ],
+              "path": [
+                "google"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "me",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{auth_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "api_password",
+                "value": "{{api_password}}",
+                "type": "text"
+              },
+              {
+                "key": "lang",
+                "value": "{{lang}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_link}}/me",
+              "host": [
+                "{{base_link}}"
+              ],
+              "path": [
+                "me"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "devices",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{auth_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "api_password",
+                "value": "{{api_password}}",
+                "type": "text"
+              },
+              {
+                "key": "lang",
+                "value": "{{lang}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_link}}/devices",
+              "host": [
+                "{{base_link}}"
+              ],
+              "path": [
+                "devices"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "logout all",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{auth_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "api_password",
+                "value": "{{api_password}}",
+                "type": "text"
+              },
+              {
+                "key": "lang",
+                "value": "{{lang}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_link}}/logout-all",
+              "host": [
+                "{{base_link}}"
+              ],
+              "path": [
+                "logout-all"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "logout",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{auth_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "api_password",
+                "value": "{{api_password}}",
+                "type": "text"
+              },
+              {
+                "key": "lang",
+                "value": "{{lang}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_link}}/logout",
+              "host": [
+                "{{base_link}}"
+              ],
+              "path": [
+                "logout"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Send KYC",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{auth_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "api_password",
+                "value": "{{api_password}}",
+                "type": "text"
+              },
+              {
+                "key": "lang",
+                "value": "{{lang}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "type",
+                  "value": "shares",
+                  "description": "[shares,broker]",
+                  "type": "text",
+                  "uuid": "ca5314c2-a310-4bf6-996e-ac9c9ed4b9ac"
+                },
+                {
+                  "key": "front_id",
+                  "description": "this field is required",
+                  "type": "file",
+                  "uuid": "06052c7d-b728-4858-82a8-25488f149746",
+                  "src": "/Users/ahmed/Desktop/Screenshot 2026-04-02 at 11.50.54 AM.png"
+                },
+                {
+                  "key": "back_id",
+                  "description": "this field is required",
+                  "type": "file",
+                  "uuid": "277d3d3c-4424-4e6b-b140-578402f49267",
+                  "src": "/Users/ahmed/Desktop/Screenshot 2026-04-02 at 11.50.54 AM.png"
+                },
+                {
+                  "key": "selfie",
+                  "description": "this field is required",
+                  "type": "file",
+                  "uuid": "6b090d52-ad3e-4bef-94e5-935386ab4847",
+                  "src": "/Users/ahmed/Desktop/Screenshot 2026-04-02 at 11.50.42 AM.png"
+                },
+                {
+                  "key": "cv",
+                  "description": "this is required in broker only",
+                  "type": "file",
+                  "uuid": "f6993be4-5f8d-4647-b07a-b99ef5cc5861",
+                  "src": "/Users/ahmed/Desktop/ahmed sami cv.pdf",
+                  "disabled": true
+                },
+                {
+                  "key": "facebook_link",
+                  "value": "https://facebook.com/erjhejkg",
+                  "description": "this field is optional",
+                  "type": "text",
+                  "uuid": "eb88ad8d-a78d-43dd-a555-1ce3016dd0d9",
+                  "disabled": true
+                },
+                {
+                  "key": "twitter_link",
+                  "value": "",
+                  "description": "this field is optional",
+                  "type": "text",
+                  "uuid": "9911109e-eec9-482d-a48d-6fc1b2560e56",
+                  "disabled": true
+                },
+                {
+                  "key": "linkedin_link",
+                  "value": "",
+                  "description": "this field is optional",
+                  "type": "text",
+                  "uuid": "fefc96dc-71e4-48b3-8352-1cfefd73dda3",
+                  "disabled": true
+                },
+                {
+                  "key": "instagram_link",
+                  "value": "",
+                  "description": "this field is optional",
+                  "type": "text",
+                  "uuid": "b0069236-8899-476e-9f31-84a90e8563c3",
+                  "disabled": true
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_link}}/kyc",
+              "host": [
+                "{{base_link}}"
+              ],
+              "path": [
+                "kyc"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "User",
+      "item": [
+        {
+          "name": "love",
+          "item": [
+            {
+              "name": "switch love",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{auth_token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "api_password",
+                    "value": "{{api_password}}",
+                    "type": "text"
+                  },
+                  {
+                    "key": "lang",
+                    "value": "{{lang}}",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "unit_id",
+                      "value": "1",
+                      "type": "text",
+                      "uuid": "82185b1b-dfc0-4514-bdbc-4e5c46567742"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{base_link}}/love",
+                  "host": [
+                    "{{base_link}}"
+                  ],
+                  "path": [
+                    "love"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "loves",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{auth_token}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "api_password",
+                    "value": "{{api_password}}",
+                    "type": "text"
+                  },
+                  {
+                    "key": "lang",
+                    "value": "{{lang}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_link}}/love",
+                  "host": [
+                    "{{base_link}}"
+                  ],
+                  "path": [
+                    "love"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Units",
+          "item": [
+            {
+              "name": "developers",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "api_password",
+                    "value": "{{api_password}}",
+                    "type": "text"
+                  },
+                  {
+                    "key": "lang",
+                    "value": "{{lang}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_link}}/developers",
+                  "host": [
+                    "{{base_link}}"
+                  ],
+                  "path": [
+                    "developers"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "ِExclusive Unit",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "api_password",
+                    "value": "{{api_password}}",
+                    "type": "text"
+                  },
+                  {
+                    "key": "lang",
+                    "value": "{{lang}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_link}}/exclusive-unit",
+                  "host": [
+                    "{{base_link}}"
+                  ],
+                  "path": [
+                    "exclusive-unit"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "types",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "api_password",
+                    "value": "{{api_password}}",
+                    "type": "text"
+                  },
+                  {
+                    "key": "lang",
+                    "value": "{{lang}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_link}}/types",
+                  "host": [
+                    "{{base_link}}"
+                  ],
+                  "path": [
+                    "types"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Units",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "api_password",
+                    "value": "{{api_password}}",
+                    "type": "text"
+                  },
+                  {
+                    "key": "lang",
+                    "value": "{{lang}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_link}}/units",
+                  "host": [
+                    "{{base_link}}"
+                  ],
+                  "path": [
+                    "units"
+                  ],
+                  "query": [
+                    {
+                      "key": "title",
+                      "value": "test search by name",
+                      "disabled": true
+                    },
+                    {
+                      "key": "sqm",
+                      "value": "900",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "type",
+                      "value": "1",
+                      "description": "enter type id",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "developer",
+                      "value": "1",
+                      "description": "enter dev id",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "bathroom",
+                      "value": "1",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "bed",
+                      "value": "1",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "other_type",
+                      "value": "developer",
+                      "description": "[resale,developer]",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "project_state",
+                      "value": "unit",
+                      "description": "[unit,launche]",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "min_price",
+                      "value": "10000",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "max_price",
+                      "value": "99999999",
+                      "type": "text",
+                      "disabled": true
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Unit",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "api_password",
+                    "value": "{{api_password}}",
+                    "type": "text"
+                  },
+                  {
+                    "key": "lang",
+                    "value": "{{lang}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_link}}/unit/1",
+                  "host": [
+                    "{{base_link}}"
+                  ],
+                  "path": [
+                    "unit",
+                    "1"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "affliates",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{auth_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "api_password",
+                "value": "{{api_password}}",
+                "type": "text"
+              },
+              {
+                "key": "lang",
+                "value": "{{lang}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_link}}/affliate",
+              "host": [
+                "{{base_link}}"
+              ],
+              "path": [
+                "affliate"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "intro",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "api_password",
+            "value": "{{api_password}}",
+            "type": "text"
+          },
+          {
+            "key": "lang",
+            "value": "{{lang}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{base_link}}/intro",
+          "host": [
+            "{{base_link}}"
+          ],
+          "path": [
+            "intro"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "help",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "api_password",
+            "value": "{{api_password}}",
+            "type": "text"
+          },
+          {
+            "key": "lang",
+            "value": "{{lang}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{base_link}}/help",
+          "host": [
+            "{{base_link}}"
+          ],
+          "path": [
+            "help"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "setting",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "api_password",
+            "value": "{{api_password}}",
+            "type": "text"
+          },
+          {
+            "key": "lang",
+            "value": "{{lang}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{base_link}}/setting",
+          "host": [
+            "{{base_link}}"
+          ],
+          "path": [
+            "setting"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
