@@ -3,7 +3,6 @@
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
-use App\Http\Middleware\ApiPassword;
 use App\Http\Middleware\ChangeLang;
 use App\Exceptions\Handler as ExceptionHandler;
 use App\Http\Middleware\CheckKyc;
@@ -17,7 +16,6 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware): void {
         $middleware->alias([
-            'api.password' => ApiPassword::class,
             'change.lang' => ChangeLang::class,
             'kyc' => CheckKyc::class,
         ]);

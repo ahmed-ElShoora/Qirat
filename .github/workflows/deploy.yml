@@ -58,9 +58,9 @@ jobs:
 
             php artisan key:generate --force
 
-            php artisan migrate --force
+            php artisan migrate
 
-            php artisan db:seed --force || true
+            php artisan db:seed
 
             php artisan storage:link || true
 

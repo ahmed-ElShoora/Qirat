@@ -14,7 +14,7 @@ use App\Http\Controllers\Api\ExclusiveUnitController;
 use App\Http\Controllers\Api\UnitController;
 use App\Http\Controllers\Api\LoveController;
 
-Route::middleware(['api.password','change.lang','throttle:60,1'])->prefix('v1')->group(function () {
+Route::middleware(['change.lang','throttle:60,1'])->prefix('v1')->group(function () {
     // Intro
     Route::get('/intro', IntroController::class);
     // Get all Developer
