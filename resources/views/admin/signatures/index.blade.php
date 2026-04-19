@@ -30,7 +30,7 @@
                             <tbody>
                             @foreach($signatures as $signature)
                                 <tr>
-                                    <td class="text-center">{{$signature->name}}</td>
+                                    <td class="text-center">{{$signature->name_ar}}</td>
                                     <td class="text-center">
                                         <a href="{{Route('admin.signatures.edit',$signature->id)}}" class="btn btn-sm btn-outline-primary">تعديل</a>
                                     </td>

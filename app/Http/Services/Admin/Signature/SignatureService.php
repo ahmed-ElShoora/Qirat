@@ -7,7 +7,7 @@ class SignatureService
 {
     use ManegeImagesTrait;
     public function getAll(){
-        return Signature::select('id', 'name')->get();
+        return Signature::select('id', 'name_ar')->get();
     }
 
     public function getById($id){
