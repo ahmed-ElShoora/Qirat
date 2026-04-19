@@ -6,11 +6,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
-
-
                     <h5 class="mb-4">تعديل وحدة </h5>
-
-
                     <div class="card mb-4">
                         <div class="card-body">
                         <form method="post" action="{{Route('admin.units.update', $data['unit']->id)}}" enctype="multipart/form-data">
