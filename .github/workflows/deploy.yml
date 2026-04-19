@@ -21,24 +21,35 @@ jobs:
           password: ${{ secrets.SERVER_PASSWORD }}
           port: ${{ secrets.SERVER_PORT }}
           script: |
+            set -e
+
             cd domains/qirat-app.com/public_html/api/
 
             php artisan down || true
 
-            git pull origin main
+            # تأكد إن المشروع معمول له clone أول مرة
+            if [ ! -d ".git" ]; then
+              echo "Git repository not found"
+              exit 1
+            fi
 
+            # سحب آخر تحديثات
+            git fetch origin
+            git reset --hard origin/main
+
+            # تثبيت الحزم
             composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader
 
+            # إنشاء .env أول مرة فقط
             if [ ! -f .env ]; then
               cp .env.example .env
             fi
 
+            # تحديث متغيرات البيئة
             sed -i "s|^APP_NAME=.*|APP_NAME='Qirat'|g" .env
             sed -i "s|^APP_ENV=.*|APP_ENV=production|g" .env
             sed -i "s|^APP_DEBUG=.*|APP_DEBUG=false|g" .env
             sed -i "s|^APP_URL=.*|APP_URL=${{ secrets.APP_URL }}|g" .env
-
-            sed -i "s|^API_PASSWORD=.*|API_PASSWORD=${{ secrets.API_PASSWORD }}|g" .env
 
             sed -i "s|^DB_CONNECTION=.*|DB_CONNECTION=mysql|g" .env
             sed -i "s|^DB_HOST=.*|DB_HOST=${{ secrets.DB_HOST }}|g" .env
@@ -50,23 +61,36 @@ jobs:
             sed -i "s|^GOOGLE_CLIENT_ID=.*|GOOGLE_CLIENT_ID=${{ secrets.GOOGLE_CLIENT_ID }}|g" .env
             sed -i "s|^GOOGLE_CLIENT_SECRET=.*|GOOGLE_CLIENT_SECRET=${{ secrets.GOOGLE_CLIENT_SECRET }}|g" .env
 
+            sed -i "s|^MAIL_MAILER=.*|MAIL_MAILER=smtp|g" .env
             sed -i "s|^MAIL_HOST=.*|MAIL_HOST=${{ secrets.MAIL_HOST }}|g" .env
             sed -i "s|^MAIL_PORT=.*|MAIL_PORT=${{ secrets.MAIL_PORT }}|g" .env
             sed -i "s|^MAIL_USERNAME=.*|MAIL_USERNAME=${{ secrets.MAIL_USERNAME }}|g" .env
             sed -i "s|^MAIL_PASSWORD=.*|MAIL_PASSWORD=${{ secrets.MAIL_PASSWORD }}|g" .env
+            sed -i "s|^MAIL_ENCRYPTION=.*|MAIL_ENCRYPTION=tls|g" .env
             sed -i "s|^MAIL_FROM_ADDRESS=.*|MAIL_FROM_ADDRESS=${{ secrets.MAIL_USERNAME }}|g" .env
+            sed -i "s|^MAIL_FROM_NAME=.*|MAIL_FROM_NAME='Qirat'|g" .env
 
-            php artisan key:generate --force
+            # توليد APP_KEY فقط لو مش موجود
+            if ! grep -q "^APP_KEY=base64:" .env; then
+              php artisan key:generate --force
+            fi
 
-            php artisan migrate
-
-            php artisan db:seed
-
+            # إنشاء symlink للتخزين لو مش موجود
             php artisan storage:link || true
 
+            # تشغيل المايجريشن
+            php artisan migrate --force
+
+            # شغل seeder فقط لو محتاج
+            # php artisan db:seed
+
+            # تنظيف وإعادة بناء الكاش
             php artisan optimize:clear
             php artisan config:cache
             php artisan route:cache
             php artisan view:cache
+
+            # التأكد إن الصلاحيات سليمة
+            chmod -R 775 storage bootstrap/cache
 
             php artisan up

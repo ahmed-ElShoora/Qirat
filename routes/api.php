@@ -14,6 +14,16 @@ use App\Http\Controllers\Api\ExclusiveUnitController;
 use App\Http\Controllers\Api\UnitController;
 use App\Http\Controllers\Api\LoveController;
 
+use Illuminate\Support\Facades\Mail;
+Route::get('/mail/{email}', function ($email) {
+    Mail::raw('عاش', function ($message) use ($email) {
+        $message->to($email)
+            ->subject('تأكيد العنوان نعم');
+    });
+
+    return 'Email sent successfully';
+});
+
 Route::middleware(['change.lang','throttle:60,1'])->prefix('v1')->group(function () {
     // Intro
     Route::get('/intro', IntroController::class);

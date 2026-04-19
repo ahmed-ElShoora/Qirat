@@ -68,7 +68,7 @@
 
                             <div class="tooltip-label-right">
                                 <div class="error-l-100 position-relative form-group">
-                                    <label>الرابط</label>
+                                    <label>الرابط ***</label>
                                     <input name="link" id="Name" required="" value="{{$help->link}}" type="text" class="form-control">
                                     @error('link')
                                     <div class="alert alert-danger" role="alert" style="text-align: center">

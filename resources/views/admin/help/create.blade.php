@@ -67,8 +67,8 @@
 
                             <div class="tooltip-label-right">
                                 <div class="error-l-100 position-relative form-group">
-                                    <label>الرابط</label>
-                                    <input name="link" id="Name" type="text" class="form-control">
+                                    <label>الرابط ***</label>
+                                    <input name="link" required="" id="Name" type="text" class="form-control">
                                     @error('link')
                                     <div class="alert alert-danger" role="alert" style="text-align: center">
                                         {{ $message }}
