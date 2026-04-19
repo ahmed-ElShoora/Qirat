@@ -19,7 +19,7 @@ class UnitService
     {
         $developers = Developer::select('id','name_ar')->get();
         $types = Type::select('id','name_ar')->get();
-        $signatures = Signature::select('id','name')->get();
+        $signatures = Signature::select('id','name_ar')->get();
         return [
             'developers' => $developers,
             'types' => $types,
