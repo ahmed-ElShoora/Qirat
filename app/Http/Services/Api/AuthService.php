@@ -7,7 +7,7 @@ use App\Models\Otp;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
-use App\Mail\SendOtpMail;
+use App\Mail\SendOTPMail;
 use Illuminate\Support\Facades\Log;
 use App\Http\Resources\UserResource;
 
@@ -39,7 +39,7 @@ class AuthService
             ]
         );
 
-        Mail::to($user->email)->send(new SendOtpMail($code));
+        Mail::to($user->email)->send(new SendOTPMail($code));
         // Log::info("OTP for {$type} sent to {$user->email}: {$code}");
     }
 
