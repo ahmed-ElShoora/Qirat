@@ -24,10 +24,15 @@ class AuthController extends Controller
 
     public function verify(VerifyRequest $request)
     {
-        if (!$this->auth->verify($request->email, $request->code)) {
-            return $this->errorResponse(400, 'Invalid code or email');
+        $reslut = $this->auth->verify($request->email, $request->code);
+        if ($reslut['status'] == false) {
+            return $this->errorResponse(400, $reslut['message']);
         }
-        return $this->successResponse(200, 'Email verified successfully');
+        return $this->successResponse(
+            200, 
+            'Email verified successfully', 
+            $reslut['data']
+        );
     }
 
     public function login(LoginRequest $request)

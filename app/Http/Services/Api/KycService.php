@@ -36,6 +36,10 @@ class KycService
                 $kyc->cv = $this->uploadImage($data['cv'], 'kyc');
             }
 
+            if (isset($data['contract'])) {
+                $kyc->contract = $this->uploadImage($data['contract'], 'kyc');
+            }
+
             $kyc->facebook_link = $data['facebook_link'] ?? null;
             $kyc->twitter_link = $data['twitter_link'] ?? null;
             $kyc->linkedin_link = $data['linkedin_link'] ?? null;

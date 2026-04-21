@@ -69,22 +69,40 @@
 
                                 <hr>
 
+                                @if($data->contract)
+                                    <p>
+                                        <a href="{{ asset('storage/' . $data->contract) }}" target="_blank" class="btn btn-primary">
+                                            عرض العقد
+                                        </a>
+                                    </p>
+                                @endif
+
+                                <hr>
+
                                 <h3>بيانات التواصل الاجتماعي</h3>
 
                                 @if($data->facebook_link)
-                                    <p>فيسبوك: <a href="{{ $data->facebook_link }}" target="_blank">{{ $data->facebook_link }}</a></p>
+                                    <a href="{{ $data->facebook_link }}" target="_blank">
+                                        <i class="fab fa-facebook"></i>
+                                    </a>
                                 @endif
 
                                 @if($data->twitter_link)
-                                    <p>تويتر: <a href="{{ $data->twitter_link }}" target="_blank">{{ $data->twitter_link }}</a></p>
+                                    <a href="{{ $data->twitter_link }}" target="_blank">
+                                        <i class="fab fa-twitter"></i>
+                                    </a>
                                 @endif
 
                                 @if($data->linkedin_link)
-                                    <p>لينكدإن: <a href="{{ $data->linkedin_link }}" target="_blank">{{ $data->linkedin_link }}</a></p>
+                                    <a href="{{ $data->linkedin_link }}" target="_blank">
+                                        <i class="fab fa-linkedin"></i>
+                                    </a>
                                 @endif
 
                                 @if($data->instagram_link)
-                                    <p>انستجرام: <a href="{{ $data->instagram_link }}" target="_blank">{{ $data->instagram_link }}</a></p>
+                                    <a href="{{ $data->instagram_link }}" target="_blank">
+                                        <i class="fab fa-instagram"></i>
+                                    </a>
                                 @endif
 
                             @endif

@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="mb-2">
-                        <h1>صفحة مراجعة طلبات التحصص</h1>
+                        <h1>صفحة مراجعة طلبات التحقق</h1>
                     </div>
 
                     <div class="separator mb-5"></div>

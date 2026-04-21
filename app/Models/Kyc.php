@@ -20,6 +20,7 @@ class Kyc extends Model
         'twitter_link',
         'linkedin_link',
         'instagram_link',
+        'contract',
     ];
 
     public function user()

@@ -4,9 +4,13 @@ namespace App\Http\Requests\Api;
 
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\Exceptions\HttpResponseException;
+use Illuminate\Contracts\Validation\Validator;
+use App\Traits\ApiResponse;
 
 class KycRequest extends FormRequest
 {
+    use ApiResponse;
     /**
      * Determine if the user is authorized to make this request.
      */
@@ -41,5 +45,19 @@ class KycRequest extends FormRequest
             'linkedin_link' => 'nullable|url',
             'instagram_link' => 'nullable|url',
         ];
+    }
+
+    /**
+     * Handle a failed validation attempt.
+     *
+     * @param  \Illuminate\Contracts\Validation\Validator  $validator
+     * @return void
+     *
+     * @throws \Illuminate\Http\Exceptions\HttpResponseException
+     */
+    protected function failedValidation(Validator $validator)
+    {        
+        $errors = $validator->errors()->all();
+        throw new HttpResponseException($this->errorResponse(422, 'Validation failed', $errors));
     }
 }

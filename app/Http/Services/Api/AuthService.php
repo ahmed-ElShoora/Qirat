@@ -53,12 +53,21 @@ class AuthService
             ->where('expires_at', '>', now())
             ->first();
 
-        if (!$otp) return false;
+        if (!$otp) return [
+            'status' => false,
+            'message' => 'Invalid or expired OTP'
+        ];
 
         $user->update(['email_verified_at' => now()]);
         $otp->delete();
 
-        return true;
+        return [
+            'status' => true,
+            'data' => [
+                'user' => new UserResource($user),
+                'token' => $user->createToken('auth_token')->plainTextToken
+            ]
+        ];
     }
 
     public function login($data)
@@ -83,7 +92,7 @@ class AuthService
         return [
             'status' => true,
             'data' => [
-                'user' => new UserResource($user),
+                'user' => new UserResource($user->load('kyc')),
                 'token' => $user->createToken('auth_token')->plainTextToken
             ]
         ];
