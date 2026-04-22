@@ -19,7 +19,8 @@ class SettingController extends Controller
             'Setting successfully',
             [
                 'phone'=>Setting::where('var','phone')->first()->value,
-                'email'=>Setting::where('var','email')->first()->value
+                'email'=>Setting::where('var','email')->first()->value,
+                'contract'=>Setting::where('var','contract')->first()->value,
             ]
         );
     }

@@ -24,7 +24,8 @@ class StoreSettingRequest extends FormRequest
     {
         return [
             'phone' => ['required'],
-            'email' => ['required','email']
+            'email' => ['required','email'],
+            'contract' => ['nullable','file','mimes:pdf,doc,docx'],
         ];
     }
 }

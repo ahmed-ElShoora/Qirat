@@ -10,7 +10,7 @@
 
                     <div class="card mb-4">
                         <div class="card-body">
-                                <form method="POST" action="{{Route('admin.setting.store')}}">
+                                <form method="POST" action="{{Route('admin.setting.store')}}" enctype="multipart/form-data">
                                     @csrf
                                     
                                     <div class="tooltip-label-right">
@@ -35,6 +35,19 @@
                                             @enderror
                                         </div>
                                     </div>
+
+                                     <div class="tooltip-label-right">
+                                        <div class="error-l-100 position-relative form-group">
+                                            <h5 class="">العقد</h5>
+                                            <input name="contract" type="file" class="form-control" accept=".pdf,.doc,.docx">
+                                            @error('contract')
+                                                <div class="alert alert-danger" role="alert" style="text-align: center">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
+                                        </div>
+                                    </div>
+
                                     <button class="btn btn-primary mt-5" type="submit">تاكيد</button>
                                 </form>
                         </div>

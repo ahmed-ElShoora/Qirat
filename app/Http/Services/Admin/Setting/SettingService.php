@@ -2,8 +2,10 @@
 namespace App\Http\Services\Admin\Setting;
 
 use App\Models\Setting;
+use App\Traits\ManegeImagesTrait;
 
 class SettingService{
+    use ManegeImagesTrait;
     public function getIndex(){
         return [
             'phone'=>Setting::where('var','phone')->first()->value,
@@ -11,13 +13,25 @@ class SettingService{
         ];
     }
 
-    public function setSetting($request){
+    public function setSetting($data){
         $phone = Setting::where('var','phone')->update([
-            'value'=>$request->phone
+            'value'=>$data['phone']
         ]);
         $email = Setting::where('var','email')->update([
-            'value'=>$request->email
+            'value'=>$data['email']
         ]);
-        return $phone && $email;
+        $status = $phone && $email;
+        if(isset($data['contract'])){
+            $oldContract = Setting::where('var','contract')->first();
+            if(file_exists(storage_path('app/public/'.$oldContract->value))){
+                $this->deleteImage($oldContract->value);
+            }
+            $contract = Setting::where('var','contract')->update([
+                'value'=>$this->uploadImage($data['contract'],'contracts')
+            ]);
+            $status = $status && $contract;
+        }
+
+        return $status;
     }
 }

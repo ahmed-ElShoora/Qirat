@@ -21,5 +21,9 @@ class SettingSeeder extends Seeder
             'var' => 'email',
             'value' => 'ahmedsamye777@icloud.com',
         ]);
+        Setting::create([
+            'var' => 'contract',
+            'value' => '/contract.pdf',
+        ]);
     }
 }
