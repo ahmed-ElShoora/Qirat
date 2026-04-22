@@ -184,7 +184,7 @@
 
                             <div class="tooltip-label-right">
                                 <div class="error-l-100 position-relative form-group">
-                                    <label>استلام عند</label>
+                                    <label>استلام عند بالعربي</label>
                                     <input name="status_ar" id="Name" type="text" class="form-control">
                                     @error('status_ar')
                                     <div class="alert alert-danger" role="alert" style="text-align: center">
