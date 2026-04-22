@@ -36,6 +36,16 @@ class UpdateUnitRequest extends FormRequest
 
             'sqm' => 'nullable|numeric|min:0',
 
+            'floor_ar' => 'nullable|string',
+            'floor_en' => 'nullable|string',
+            'parking_ar' => 'nullable|string',
+            'parking_en' => 'nullable|string',
+            'view_ar' => 'nullable|string',
+            'view_en' => 'nullable|string',
+            'status_ar' => 'nullable|string',
+            'status_en' => 'nullable|string',
+            'priority' => 'required|string|in:A,B,C,D',
+
             'developer_id' => 'required|exists:developers,id',
             'type_id' => 'required|exists:types,id',
 
