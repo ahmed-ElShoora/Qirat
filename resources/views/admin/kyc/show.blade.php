@@ -82,26 +82,26 @@
                                 <h3>بيانات التواصل الاجتماعي</h3>
 
                                 @if($data->facebook_link)
-                                    <a href="{{ $data->facebook_link }}" target="_blank">
-                                        <i class="fab fa-facebook"></i>
+                                    <a href="{{ $data->facebook_link }}" target="_blank" rel="noopener noreferrer">
+                                        <i class="simple-icon-facebook"></i>
                                     </a>
                                 @endif
 
                                 @if($data->twitter_link)
-                                    <a href="{{ $data->twitter_link }}" target="_blank">
-                                        <i class="fab fa-twitter"></i>
+                                    <a href="{{ $data->twitter_link }}" target="_blank" rel="noopener noreferrer">
+                                        <i class="simple-icon-twitter"></i>
                                     </a>
                                 @endif
 
                                 @if($data->linkedin_link)
-                                    <a href="{{ $data->linkedin_link }}" target="_blank">
-                                        <i class="fab fa-linkedin"></i>
+                                    <a href="{{ $data->linkedin_link }}" target="_blank" rel="noopener noreferrer">
+                                        <i class="simple-icon-linkedin"></i>
                                     </a>
                                 @endif
 
                                 @if($data->instagram_link)
-                                    <a href="{{ $data->instagram_link }}" target="_blank">
-                                        <i class="fab fa-instagram"></i>
+                                    <a href="{{ $data->instagram_link }}" target="_blank" rel="noopener noreferrer">
+                                        <i class="simple-icon-instagram"></i>
                                     </a>
                                 @endif
 
