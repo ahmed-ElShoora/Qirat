@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Traits\ApiResponse;
-use App\Http\Requests\StoreSellRequest;
+use App\Http\Requests\Api\StoreSellRequest;
 use App\Http\Services\Api\SellService;
 
 class SellController extends Controller

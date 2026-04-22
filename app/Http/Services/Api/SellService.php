@@ -6,7 +6,7 @@ use App\Models\Sell;
 
 class SellService
 {
-    public function switchSell(array $data): bool
+    public function addSell(array $data): bool
     {
         Sell::create([
             'name' => $data['name'],

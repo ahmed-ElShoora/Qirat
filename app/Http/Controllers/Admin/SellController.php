@@ -17,9 +17,9 @@ class SellController extends Controller
         return view('admin.sell.index', compact('sells'));
     }
 
-    public function hideSell(Sell $sell)
+    public function hideSell($sell_id)
     {
-        $result = $this->sellService->hide($sell);
+        $result = $this->sellService->hide($sell_id);
         if (!$result) {
             return back()->withErrors(['error' => 'Failed to hide sell. Please try again.']);
         }
