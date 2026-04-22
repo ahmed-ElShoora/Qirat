@@ -39,6 +39,10 @@ class FullUnitResource extends JsonResource
             'pay_amount_per_years' => $this->pay_amount_per_years,
             'payment_percentage_per_year' => $this->payment_percentage_per_year,
             'years_count' => $this->years_count,
+            'floor' => $this->floor,
+            'parking' => $this->parking,
+            'view' => $this->view,
+            'status' => $this->status,
             'developer' => [
                 'id' => $this->developer->id,
                 'name' => $this->developer->name,

@@ -104,6 +104,127 @@
                                     <div class="invalid-tooltip">Name</div>
                                 </div>
                             </div>
+
+
+
+                            <div class="tooltip-label-right">
+                                <div class="error-l-100 position-relative form-group">
+                                    <label>الطابق بالعربي</label>
+                                    <input name="floor_ar" id="Name" type="text" class="form-control">
+                                    @error('floor_ar')
+                                    <div class="alert alert-danger" role="alert" style="text-align: center">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
+                                    <div class="invalid-tooltip">Name</div>
+                                </div>
+                            </div>
+                            <div class="tooltip-label-right">
+                                <div class="error-l-100 position-relative form-group">
+                                    <label>الطابق بالإنجليزي</label>
+                                    <input name="floor_en" id="Name" type="text" class="form-control">
+                                    @error('floor_en')
+                                    <div class="alert alert-danger" role="alert" style="text-align: center">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
+                                    <div class="invalid-tooltip">Name</div>
+                                </div>
+                            </div>
+
+                            <div class="tooltip-label-right">
+                                <div class="error-l-100 position-relative form-group">
+                                    <label>باركنج بالعربي</label>
+                                    <input name="parking_ar" id="Name" type="text" class="form-control">
+                                    @error('parking_ar')
+                                    <div class="alert alert-danger" role="alert" style="text-align: center">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
+                                    <div class="invalid-tooltip">Name</div>
+                                </div>
+                            </div>
+                            <div class="tooltip-label-right">
+                                <div class="error-l-100 position-relative form-group">
+                                    <label>باركنج بالإنجليزي</label>
+                                    <input name="parking_en" id="Name" type="text" class="form-control">
+                                    @error('parking_en')
+                                    <div class="alert alert-danger" role="alert" style="text-align: center">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
+                                    <div class="invalid-tooltip">Name</div>
+                                </div>
+                            </div>
+
+                            <div class="tooltip-label-right">
+                                <div class="error-l-100 position-relative form-group">
+                                    <label>الview بالعربي</label>
+                                    <input name="view_ar" id="Name" type="text" class="form-control">
+                                    @error('view_ar')
+                                    <div class="alert alert-danger" role="alert" style="text-align: center">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
+                                    <div class="invalid-tooltip">Name</div>
+                                </div>
+                            </div>
+                            <div class="tooltip-label-right">
+                                <div class="error-l-100 position-relative form-group">
+                                    <label>الview بالإنجليزي</label>
+                                    <input name="view_en" id="Name" type="text" class="form-control">
+                                    @error('view_en')
+                                    <div class="alert alert-danger" role="alert" style="text-align: center">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
+                                    <div class="invalid-tooltip">Name</div>
+                                </div>
+                            </div>
+
+                            <div class="tooltip-label-right">
+                                <div class="error-l-100 position-relative form-group">
+                                    <label>استلام عند</label>
+                                    <input name="status_ar" id="Name" type="text" class="form-control">
+                                    @error('status_ar')
+                                    <div class="alert alert-danger" role="alert" style="text-align: center">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
+                                    <div class="invalid-tooltip">Name</div>
+                                </div>
+                            </div>
+                            <div class="tooltip-label-right">
+                                <div class="error-l-100 position-relative form-group">
+                                    <label>استلام عند بالإنجليزي</label>
+                                    <input name="status_en" id="Name" type="text" class="form-control">
+                                    @error('status_en')
+                                    <div class="alert alert-danger" role="alert" style="text-align: center">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
+                                    <div class="invalid-tooltip">Name</div>
+                                </div>
+                            </div>
+
+                            <div class="tooltip-label-right">
+                                <div class="error-l-100 position-relative form-group">
+                                    <label>اولوية العرض ***</label>
+                                    <select name="priority" required class="form-control form-select"style="width: 50%;">
+                                        <option disabled selected>اختر اولوية العرض</option>
+                                        <option value="A">عالي</option>
+                                        <option value="B">متوسط</option>
+                                        <option value="C">منخفض</option>
+                                        <option value="D">منخفض جدا</option>
+                                    </select>
+                                    @error('priority')
+                                        <div class="alert alert-danger" role="alert" style="text-align: center">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
+                                    <div class="invalid-tooltip">Name</div>
+                                </div>
+                            </div>
                             
                             <div class="tooltip-label-right">
                                 <div class="error-l-100 position-relative form-group">

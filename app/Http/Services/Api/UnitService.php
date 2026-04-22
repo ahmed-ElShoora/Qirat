@@ -30,7 +30,8 @@ class UnitService
             'bed_number',
             'bathroom_number',
             'project_state',
-            'is_hide'
+            'is_hide',
+            'priority'
         )->with(
             'developer:id,name_'.app()->getLocale() . ' as name,logo',
             'type:id,name_'.app()->getLocale() . ' as name'
@@ -46,7 +47,8 @@ class UnitService
         ->when($data['max_price'] ?? null, fn($q) => $q->where('developer_price', '<=', $data['max_price']))
         ->when($data['bed'] ?? null, fn($q) => $q->where('bed_number', $data['bed']))
         ->when($data['bathroom'] ?? null, fn($q) => $q->where('bathroom_number', $data['bathroom']))
-        ->latest()
+        ->orderByRaw("FIELD(priority, 'A','B','C','D')")
+        ->orderBy('created_at', 'desc')
         ->get();
 
 
@@ -79,7 +81,11 @@ class UnitService
             'pay_amount_per_years',
             'payment_percentage_per_year',
             'is_hide',
-            'years_count'
+            'years_count',
+            'floor_'.app()->getLocale() . ' as floor',
+            'parking_'.app()->getLocale() . ' as parking',
+            'view_'.app()->getLocale() . ' as view',
+            'status_'.app()->getLocale() . ' as status',
         )->with(
             'developer:id,name_'.app()->getLocale() . ' as name,description_'.app()->getLocale() . ' as description,logo',
             'type:id,name_'.app()->getLocale() . ' as name',

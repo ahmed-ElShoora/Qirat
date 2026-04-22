@@ -56,7 +56,16 @@ class UnitService
             'digital_brochure' => isset($data['digital_brochure']) ? $this->uploadImage($data['digital_brochure'],'units/digital_brochures/') : null,
             'pay_amount_per_years' => $data['pay_amount_per_years'],
             'payment_percentage_per_year' => $data['payment_percentage_per_year'],
-            'is_promotion' => $isFirstUnit ? true : false
+            'is_promotion' => $isFirstUnit ? true : false,
+            'floor_ar' => $data['floor_ar'] ?? null,
+            'floor_en' => $data['floor_en'] ?? null,
+            'parking_ar' => $data['parking_ar'] ?? null,
+            'parking_en' => $data['parking_en'] ?? null,
+            'view_ar' => $data['view_ar'] ?? null,
+            'view_en' => $data['view_en'] ?? null,
+            'status_ar' => $data['status_ar'] ?? null,
+            'status_en' => $data['status_en'] ?? null,
+            'priority' => $data['priority'] ?? 'D'
         ]);
         $unit->signatures()->attach($data['signatures']);
         foreach($data['slider_images'] as $image){
@@ -72,8 +81,8 @@ class UnitService
     {
         $developers = Developer::select('id','name_ar')->get();
         $types = Type::select('id','name_ar')->get();
-        $signatures = Signature::select('id','name')->get();
-        $unit = Unit::with('signatures:id,name')->findOrFail($id);
+        $signatures = Signature::select('id','name_ar')->get();
+        $unit = Unit::with('signatures:id,name_ar')->findOrFail($id);
         return [
             'developers' => $developers,
             'types' => $types,
@@ -106,7 +115,16 @@ class UnitService
             'bed_number' => $data['bed_number'] ?? null,
             'bathroom_number' => $data['bathroom_number'] ?? null,
             'pay_amount_per_years' => $data['pay_amount_per_years'],
-            'payment_percentage_per_year' => $data['payment_percentage_per_year']
+            'payment_percentage_per_year' => $data['payment_percentage_per_year'],
+            'floor_ar' => $data['floor_ar'] ?? null,
+            'floor_en' => $data['floor_en'] ?? null,
+            'parking_ar' => $data['parking_ar'] ?? null,
+            'parking_en' => $data['parking_en'] ?? null,
+            'view_ar' => $data['view_ar'] ?? null,
+            'view_en' => $data['view_en'] ?? null,
+            'status_ar' => $data['status_ar'] ?? null,
+            'status_en' => $data['status_en'] ?? null,
+            'priority' => $data['priority'] ?? 'D'
         ]);
         if(isset($data['primary_image'])){
             $this->deleteImage($unit->primary_image);

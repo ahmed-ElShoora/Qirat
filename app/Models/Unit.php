@@ -39,7 +39,16 @@ class Unit extends Model
         'payment_percentage_per_year',
         'is_promotion',
         'is_hide',
-        'years_count'
+        'years_count',
+        'floor_ar',
+        'floor_en',
+        'parking_ar',
+        'parking_en',
+        'view_ar',
+        'view_en',
+        'status_ar',
+        'status_en',
+        'priority',
     ];
 
     public function type(){
