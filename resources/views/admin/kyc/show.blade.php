@@ -83,25 +83,25 @@
 
                                 @if($data->facebook_link)
                                     <a href="{{ $data->facebook_link }}" target="_blank" rel="noopener noreferrer">
-                                        <i class="simple-icon-facebook"></i>
+                                        <img src="{{asset('/icons/facebook.png')}}" alt="" srcset="">
                                     </a>
                                 @endif
 
                                 @if($data->twitter_link)
                                     <a href="{{ $data->twitter_link }}" target="_blank" rel="noopener noreferrer">
-                                        <i class="simple-icon-twitter"></i>
+                                        <img src="{{asset('/icons/twitter.png')}}" alt="" srcset="">
                                     </a>
                                 @endif
 
                                 @if($data->linkedin_link)
                                     <a href="{{ $data->linkedin_link }}" target="_blank" rel="noopener noreferrer">
-                                        <i class="simple-icon-linkedin"></i>
+                                        <img src="{{asset('/icons/linkedin.png')}}" alt="" srcset="">
                                     </a>
                                 @endif
 
                                 @if($data->instagram_link)
                                     <a href="{{ $data->instagram_link }}" target="_blank" rel="noopener noreferrer">
-                                        <i class="simple-icon-instagram"></i>
+                                        <img src="{{asset('/icons/instagram.png')}}" alt="" srcset="">
                                     </a>
                                 @endif
 
