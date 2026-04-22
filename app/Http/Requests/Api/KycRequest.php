@@ -40,6 +40,7 @@ class KycRequest extends FormRequest
             'back_id' => 'required|image|mimes:jpeg,png,jpg',
             'selfie' => 'required|image|mimes:jpeg,png,jpg',
             'cv' => 'required|file|mimes:pdf,doc,docx',
+            'contract' => 'required|file|mimes:pdf,doc,docx',
             'facebook_link' => 'nullable|url',
             'twitter_link' => 'nullable|url',
             'linkedin_link' => 'nullable|url',
