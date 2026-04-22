@@ -81,29 +81,31 @@
 
                                 <h3>بيانات التواصل الاجتماعي</h3>
 
-                                @if($data->facebook_link)
-                                    <a href="{{ $data->facebook_link }}" target="_blank" rel="noopener noreferrer">
-                                        <img src="{{asset('/icons/facebook.png')}}" alt="" srcset="">
-                                    </a>
-                                @endif
+                                <div style="display: flex; align-items: right; gap: 10px; flex-wrap: wrap;">
+                                    @if($data->facebook_link)
+                                        <a href="{{ $data->facebook_link }}" target="_blank" rel="noopener noreferrer">
+                                            <img src="{{asset('/icons/facebook.png')}}" alt="Facebook" style="width: 50px;">
+                                        </a>
+                                    @endif
 
-                                @if($data->twitter_link)
-                                    <a href="{{ $data->twitter_link }}" target="_blank" rel="noopener noreferrer">
-                                        <img src="{{asset('/icons/twitter.png')}}" alt="" srcset="">
-                                    </a>
-                                @endif
+                                    @if($data->twitter_link)
+                                        <a href="{{ $data->twitter_link }}" target="_blank" rel="noopener noreferrer">
+                                            <img src="{{asset('/icons/twitter.png')}}" alt="Twitter" style="width: 50px;">
+                                        </a>
+                                    @endif
 
-                                @if($data->linkedin_link)
-                                    <a href="{{ $data->linkedin_link }}" target="_blank" rel="noopener noreferrer">
-                                        <img src="{{asset('/icons/linkedin.png')}}" alt="" srcset="">
-                                    </a>
-                                @endif
+                                    @if($data->linkedin_link)
+                                        <a href="{{ $data->linkedin_link }}" target="_blank" rel="noopener noreferrer">
+                                            <img src="{{asset('/icons/linkedin.png')}}" alt="LinkedIn" style="width: 50px;">
+                                        </a>
+                                    @endif
 
-                                @if($data->instagram_link)
-                                    <a href="{{ $data->instagram_link }}" target="_blank" rel="noopener noreferrer">
-                                        <img src="{{asset('/icons/instagram.png')}}" alt="" srcset="">
-                                    </a>
-                                @endif
+                                    @if($data->instagram_link)
+                                        <a href="{{ $data->instagram_link }}" target="_blank" rel="noopener noreferrer">
+                                            <img src="{{asset('/icons/instagram.png')}}" alt="Instagram" style="width: 50px;">
+                                        </a>
+                                    @endif
+                                </div>
 
                             @endif
 
