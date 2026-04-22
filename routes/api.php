@@ -13,6 +13,7 @@ use App\Http\Controllers\Api\TypeController;
 use App\Http\Controllers\Api\ExclusiveUnitController;
 use App\Http\Controllers\Api\UnitController;
 use App\Http\Controllers\Api\LoveController;
+use App\Http\Controllers\Api\SellController;
 
 use Illuminate\Support\Facades\Mail;
 Route::get('/mail/{email}', function ($email) {
@@ -42,6 +43,8 @@ Route::middleware(['change.lang','throttle:60,1'])->prefix('v1')->group(function
     Route::get('/types', TypeController::class);
     //Setting Route
     Route::get('/setting', SettingController::class);
+    //Sell unit
+    Route::post('/sell', SellController::class);
     // Auth
     Route::post('/register', [AuthController::class, 'register']);
     Route::post('/verify', [AuthController::class, 'verify']);

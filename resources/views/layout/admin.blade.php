@@ -171,6 +171,12 @@
                     </a>
                 </li>
                 <li>
+                    <a href="{{Route('admin.sells')}}">
+                        <i class="simple-icon-basket-loaded"></i>
+                        <span>بيع وحدة</span>
+                    </a>
+                </li>
+                <li>
                     <a href="{{Route('admin.intros.index')}}">
                         <i class="simple-icon-doc"></i>
                         <span>صفحات البداية</span>

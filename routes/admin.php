@@ -13,6 +13,7 @@ use App\Http\Controllers\Admin\TypeController;
 use App\Http\Controllers\Admin\SignatureController;
 use App\Http\Controllers\Admin\UnitController;
 use App\Http\Controllers\Admin\PhasesController;
+use App\Http\Controllers\Admin\SellController;
 
 //admin login routes
 Route::get('/login', [AuthController::class, 'login'])->name('login');
@@ -43,6 +44,9 @@ Route::middleware('auth:admin')->name('admin.')->group(function () {
     Route::resource('/units/{unit_id}/phases', PhasesController::class)->except(['show']);
     //types crud
     Route::resource('/types',TypeController::class)->except(['show', 'destroy']);
+    //sell crud
+    Route::get('/sells', [SellController::class, 'sells'])->name('sells');
+    Route::get('/sells/{id}/hide', [SellController::class, 'hideSell'])->name('sells.hide');
     //Signature crud
     Route::resource('/signatures',SignatureController::class)->except(['show', 'destroy']);
     //Edit Setting
