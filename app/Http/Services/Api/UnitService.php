@@ -57,7 +57,8 @@ class UnitService
 
     public function getUnitById($id)
     {
-        $unit = Unit::select(
+        $unit = Unit::where('id', $id)
+        ->select(
             'id',
             'title_'.app()->getLocale() . ' as title',
             'sqm',
@@ -92,7 +93,11 @@ class UnitService
             'images:id,unit_id,image',
             'signatures:id,name_'.app()->getLocale() . ' as name,icon'
         )->where('is_hide', false)
-        ->findOrFail($id);
+        ->first();
+
+        if (!$unit) {
+            return null;
+        }
 
         return FullUnitResource::make($unit);
     }

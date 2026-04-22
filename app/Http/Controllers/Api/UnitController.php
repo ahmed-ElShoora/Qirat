@@ -27,6 +27,12 @@ class UnitController extends Controller
     public function show($id)
     {
         $unit = $this->unitService->getUnitById($id);
+        if (!$unit) {
+            return $this->errorResponse(
+                404, 
+                'Unit not found'
+            );
+        }
         return $this->successResponse(
             200, 
             'Unit retrieved successfully', 
