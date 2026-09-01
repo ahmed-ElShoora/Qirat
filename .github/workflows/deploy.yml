@@ -27,13 +27,15 @@ jobs:
 
             php artisan down || true
 
-            # Clone أول مرة، وبعد كده اسحب آخر تحديث .
+            # تأكد إن المشروع معمول له clone أول مرة
             if [ ! -d ".git" ]; then
-              git clone https://github.com/ahmed-ElShoora/Qirat.git .
-            else
-              git fetch origin
-              git reset --hard origin/main
+              echo "Git repository not found"
+              exit 1
             fi
+
+            # سحب آخر تحديثات
+            git fetch origin
+            git reset --hard origin/main
 
             # تثبيت الحزم
             composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader
