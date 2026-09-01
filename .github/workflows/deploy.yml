@@ -37,6 +37,17 @@ jobs:
             git fetch origin
             git reset --hard origin/main
 
+            echo "===== PHP INFO ====="
+            whoami
+            pwd
+            which php
+            php -v
+
+            echo "===== COMPOSER INFO ====="
+            which composer
+            composer --version
+            composer check-platform-reqs
+
             # تثبيت الحزم
             composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader
 
