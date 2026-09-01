@@ -27,7 +27,7 @@ jobs:
 
             php artisan down || true
 
-            # Clone أول مرة، وبعد كده اسحب آخر تحديث
+            # Clone أول مرة، وبعد كده اسحب آخر تحديث .
             if [ ! -d ".git" ]; then
               git clone https://github.com/ahmed-ElShoora/Qirat.git .
             else
